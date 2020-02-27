@@ -1,5 +1,6 @@
-import 'package:example/kumi_popup_window.dart';
+
 import 'package:flutter/material.dart';
+import 'package:kumi_popup_window/kumi_popup_window.dart';
 
 void main() => runApp(MyApp());
 
