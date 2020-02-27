@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.0
+  kumi_popup_window: ^1.0.1
 ```
 
 **2.导入**
@@ -21,44 +21,44 @@ import 'package:kumi_popup_window/kumi_popup_window.dart';
 
 **3.使用**
 ```dart
-              //showPopupWindow 和 createPopupWindow 均可
-              showPopupWindow(
-                context,
-                gravity: KumiPopupGravity.rightBottom,
-                bgColor: Colors.grey.withOpacity(0.5),
-                clickOutDismiss: true,
-                clickBackDismiss: true,
-                customAnimation: false,
-                customPop: false,
-                customPage: false,
-                //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
-                underStatusBar: false,
-                underAppBar: true,
-                offsetX: 0,
-                offsetY: 0,
-                duration: Duration(milliseconds: 200),
-                onShowStart: (pop) {
-                  print("showStart");
-                },
-                onShowFinish: (pop) {
-                  print("showFinish");
-                },
-                onDismissStart: (pop) {
-                  print("dismissStart");
-                },
-                onDismissFinish: (pop) {
-                  print("dismissFinish");
-                },
-                childFun: (pop) {
-                  return Container(
-                    key: GlobalKey(),
-                    padding: EdgeInsets.all(10),
-                    height: 100,
-                    width: 100,
-                    color: Colors.redAccent,
-                  );
-                },
-              );
+//showPopupWindow 和 createPopupWindow 均可
+showPopupWindow(
+  context,
+  gravity: KumiPopupGravity.rightBottom,
+  bgColor: Colors.grey.withOpacity(0.5),
+  clickOutDismiss: true,
+  clickBackDismiss: true,
+  customAnimation: false,
+  customPop: false,
+  customPage: false,
+  //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+  underStatusBar: false,
+  underAppBar: true,
+  offsetX: 0,
+  offsetY: 0,
+  duration: Duration(milliseconds: 200),
+  onShowStart: (pop) {
+    print("showStart");
+  },
+  onShowFinish: (pop) {
+    print("showFinish");
+  },
+  onDismissStart: (pop) {
+    print("dismissStart");
+  },
+  onDismissFinish: (pop) {
+    print("dismissFinish");
+  },
+  childFun: (pop) {
+    return Container(
+      key: GlobalKey(),
+      padding: EdgeInsets.all(10),
+      height: 100,
+      width: 100,
+      color: Colors.redAccent,
+    );
+  },
+);
 
 ```
 
