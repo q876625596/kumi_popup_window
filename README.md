@@ -64,6 +64,7 @@ import 'package:kumi_popup_window/kumi_popup_window.dart';
 
 Brief description, see [here](lib/kumi_popup_window.dart) for details
 
+
 params|description|default
 --|--|--|
 childFun|Method for customizing the content of the popup window. The returned widget will be used as the content of the popup window|null，(require)
