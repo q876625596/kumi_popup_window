@@ -64,6 +64,7 @@ import 'package:kumi_popup_window/kumi_popup_window.dart';
 
 简要说明，详细说明请看[这里](lib/kumi_popup_window.dart)
 
+
 参数|描述|默认值
 --|--|--|
 childFun|自定义弹出框内容的方法，返回的widget将作为弹出框内容|无默认，必填
