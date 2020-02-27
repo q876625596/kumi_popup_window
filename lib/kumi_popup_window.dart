@@ -53,26 +53,26 @@ KumiPopupWindow showPopupWindow<T>(
 }
 
 KumiPopupWindow createPopupWindow<T>(
-    BuildContext context, {
-      Widget Function(KumiPopupWindow popup) childFun,
-      KumiPopupGravity gravity,
-      bool customAnimation,
-      bool customPop,
-      bool customPage,
-      Color bgColor,
-      RenderBox targetRenderBox,
-      bool underStatusBar,
-      bool underAppBar,
-      bool clickOutDismiss,
-      bool clickBackDismiss,
-      double offsetX,
-      double offsetY,
-      Duration duration,
-      Function(KumiPopupWindow popup) onShowStart,
-      Function(KumiPopupWindow popup) onShowFinish,
-      Function(KumiPopupWindow popup) onDismissStart,
-      Function(KumiPopupWindow popup) onDismissFinish,
-    }) {
+  BuildContext context, {
+  Widget Function(KumiPopupWindow popup) childFun,
+  KumiPopupGravity gravity,
+  bool customAnimation,
+  bool customPop,
+  bool customPage,
+  Color bgColor,
+  RenderBox targetRenderBox,
+  bool underStatusBar,
+  bool underAppBar,
+  bool clickOutDismiss,
+  bool clickBackDismiss,
+  double offsetX,
+  double offsetY,
+  Duration duration,
+  Function(KumiPopupWindow popup) onShowStart,
+  Function(KumiPopupWindow popup) onShowFinish,
+  Function(KumiPopupWindow popup) onDismissStart,
+  Function(KumiPopupWindow popup) onDismissFinish,
+}) {
   return KumiPopupWindow(
     gravity: gravity,
     customAnimation: customAnimation,
@@ -274,10 +274,10 @@ class KumiPopupWindow extends StatefulWidget {
         _offsetX = offsetX ?? 0,
         _offsetY = offsetY ?? 0,
         _duration = duration ?? Duration(milliseconds: 200),
-        _onShowStart = onShowStart ?? ((pop) {}),
-        _onShowEnd = onShowFinish ?? ((pop) {}),
-        _onDismissStart = onDismissStart ?? ((pop) {}),
-        _onDismissEnd = onDismissFinish ?? ((pop) {});
+        _onShowStart = onShowStart,
+        _onShowEnd = onShowFinish,
+        _onDismissStart = onDismissStart,
+        _onDismissEnd = onDismissFinish;
 
   @override
   _KumiPopupWindowState createState() => _KumiPopupWindowState();
@@ -311,16 +311,24 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
     widget._controller.addStatusListener((status) {
       switch (status) {
         case AnimationStatus.forward:
-          widget._onShowStart(widget);
+          if (widget._onShowStart != null) {
+            widget._onShowStart(widget);
+          }
           break;
         case AnimationStatus.dismissed:
-          widget._onDismissEnd(widget);
+          if (widget._onDismissEnd != null) {
+            widget._onDismissEnd(widget);
+          }
           break;
         case AnimationStatus.reverse:
-          widget._onDismissStart(widget);
+          if (widget._onDismissStart != null) {
+            widget._onDismissStart(widget);
+          }
           break;
         case AnimationStatus.completed:
-          widget._onShowEnd(widget);
+          if (widget._onShowEnd != null) {
+            widget._onShowEnd(widget);
+          }
           break;
       }
     });
