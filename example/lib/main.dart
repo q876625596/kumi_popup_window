@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text("popup"),
             color: Colors.redAccent,
             onPressed: () {
-              if (popupWindow == null) {
+             /* if (popupWindow == null) {
                 popupWindow = createPopupWindow(
                   context,
                   gravity: KumiPopupGravity.rightBottom,
@@ -98,6 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   onDismissFinish: (pop) {
                     print("dismissFinish");
                   },
+                  onClickOut: (pop){
+                    print("onClickOut");
+                  },
+                  onClickBack: (pop){
+                    print("onClickBack");
+                  },
                   childFun: (controller) {
                     return Container(
                       key: GlobalKey(),
@@ -109,8 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 );
               }
-              popupWindow.show(context);
-              /*showPopupWindow(
+              popupWindow.show(context);*/
+              showPopupWindow(
                 context,
                 gravity: KumiPopupGravity.rightBottom,
                 bgColor: Colors.grey.withOpacity(0.5),
@@ -137,6 +143,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 onDismissFinish: (pop) {
                   print("dismissFinish");
                 },
+                onClickOut: (pop){
+                  print("onClickOut");
+                },
+                onClickBack: (pop){
+                  print("onClickBack");
+                },
                 childFun: (controller) {
                   return Container(
                     key: GlobalKey(),
@@ -146,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.redAccent,
                   );
                 },
-              );*/
+              );
             }),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
