@@ -3,6 +3,7 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../kumi_popup_window/gen" />
         <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../kumi_popup_window/gen" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../kumi_popup_window/AndroidManifest.xml" />

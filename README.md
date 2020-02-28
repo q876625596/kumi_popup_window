@@ -10,7 +10,7 @@ A simple and easy-to-use pop-up window. There are no flashy preset templates. Ev
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.1
+  kumi_popup_window: ^1.0.2
 ```
 
 **2.Import**
@@ -85,6 +85,8 @@ onShowStart|When the popupWindow show animation start|null
 onShowEnd|When the popupWindow show animation finish|null
 onDismissStart|When the popupWindow dismiss animation start|null
 onDismissEnd|When the popupWindow dismiss animation finish|null
+onClickOut|Click on the listener outside the popup|null
+onClickBack|Listening on clicking the physical back button|null
 
 property/method|description
 --|--|

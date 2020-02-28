@@ -22,6 +22,8 @@ KumiPopupWindow showPopupWindow<T>(
   Function(KumiPopupWindow popup) onShowFinish,
   Function(KumiPopupWindow popup) onDismissStart,
   Function(KumiPopupWindow popup) onDismissFinish,
+  Function(KumiPopupWindow popup) onClickOut,
+  Function(KumiPopupWindow popup) onClickBack,
 }) {
   var popup = KumiPopupWindow(
     gravity: gravity,
@@ -42,6 +44,8 @@ KumiPopupWindow showPopupWindow<T>(
     onShowFinish: onShowFinish,
     onDismissStart: onDismissStart,
     onDismissFinish: onDismissFinish,
+    onClickOut: onClickOut,
+    onClickBack: onClickBack,
   );
   Navigator.push(
     context,
@@ -72,6 +76,8 @@ KumiPopupWindow createPopupWindow<T>(
   Function(KumiPopupWindow popup) onShowFinish,
   Function(KumiPopupWindow popup) onDismissStart,
   Function(KumiPopupWindow popup) onDismissFinish,
+  Function(KumiPopupWindow popup) onClickOut,
+  Function(KumiPopupWindow popup) onClickBack,
 }) {
   return KumiPopupWindow(
     gravity: gravity,
@@ -92,6 +98,8 @@ KumiPopupWindow createPopupWindow<T>(
     onShowFinish: onShowFinish,
     onDismissStart: onDismissStart,
     onDismissFinish: onDismissFinish,
+    onClickOut: onClickOut,
+    onClickBack: onClickBack,
   );
 }
 
@@ -219,6 +227,18 @@ class KumiPopupWindow extends StatefulWidget {
   /// When the popupWindow dismiss animation finish
   final Function(KumiPopupWindow popup) _onDismissEnd;
 
+  ///点击弹框以外的监听
+  ///只有当[_clickOutDismiss] == false 才有效
+  /// Click on the listener outside the popup
+  /// Only works when [_clickOutDismiss] == false
+  final Function(KumiPopupWindow popup) _onClickOut;
+
+  ///点击物理返回按钮的监听
+  ///只有当[_clickBackDismiss] == false 才有效
+  /// Listening on clicking the physical back button
+  /// Only works when [_clickBackDismiss] == false
+  final Function(KumiPopupWindow popup) _onClickBack;
+
   ///弹出框的尺寸
   ///如果为null，那么将在绘制完成之后计算并赋值
   /// PopupWindow  size
@@ -259,6 +279,8 @@ class KumiPopupWindow extends StatefulWidget {
     Function(KumiPopupWindow popup) onShowFinish,
     Function(KumiPopupWindow popup) onDismissStart,
     Function(KumiPopupWindow popup) onDismissFinish,
+    Function(KumiPopupWindow popup) onClickOut,
+    Function(KumiPopupWindow popup) onClickBack,
   })  : _childFun = childFun,
         _gravity = gravity ?? KumiPopupGravity.center,
         _customAnimation = customAnimation ?? false,
@@ -277,7 +299,9 @@ class KumiPopupWindow extends StatefulWidget {
         _onShowStart = onShowStart,
         _onShowEnd = onShowFinish,
         _onDismissStart = onDismissStart,
-        _onDismissEnd = onDismissFinish;
+        _onDismissEnd = onDismissFinish,
+        _onClickOut = onClickOut,
+        _onClickBack = onClickBack;
 
   @override
   _KumiPopupWindowState createState() => _KumiPopupWindowState();
@@ -452,6 +476,10 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
                       onTap: () {
                         if (widget._clickOutDismiss) {
                           widget.dismiss(context);
+                          return;
+                        }
+                        if (widget._onClickOut != null) {
+                          widget._onClickOut(widget);
                         }
                       },
                     ),
@@ -464,6 +492,10 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           onWillPop: () {
             if (widget._clickBackDismiss) {
               widget.dismiss(context);
+              return Future.value(false);
+            }
+            if (widget._onClickBack != null) {
+              widget._onClickBack(widget);
             }
             return Future.value(false);
           });
@@ -879,6 +911,10 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
                     onTap: () {
                       if (widget._clickOutDismiss) {
                         widget.dismiss(context);
+                        return;
+                      }
+                      if (widget._onClickOut != null) {
+                        widget._onClickOut(widget);
                       }
                     },
                   ),
@@ -891,6 +927,10 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         onWillPop: () {
           if (widget._clickBackDismiss) {
             widget.dismiss(context);
+            return Future.value(false);
+          }
+          if (widget._onClickBack != null) {
+            widget._onClickBack(widget);
           }
           return Future.value(false);
         });
