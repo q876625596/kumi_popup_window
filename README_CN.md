@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.2
+  kumi_popup_window: ^1.0.3
 ```
 
 **2.导入**
@@ -32,6 +32,7 @@ showPopupWindow(
   customPop: false,
   customPage: false,
   //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+  //childSize: null,
   underStatusBar: false,
   underAppBar: true,
   offsetX: 0,
@@ -48,6 +49,12 @@ showPopupWindow(
   },
   onDismissFinish: (pop) {
     print("dismissFinish");
+  },
+  onClickOut: (pop){
+    print("onClickOut");
+  },
+  onClickBack: (pop){
+    print("onClickBack");
   },
   childFun: (pop) {
     return Container(

@@ -1,3 +1,6 @@
+## [1.0.3]
+* fix bug
+
 ## [1.0.2]
 
 * 新增onClickOut()和onClickBack()
