@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.3
+  kumi_popup_window: ^1.0.4
 ```
 
 **2.导入**

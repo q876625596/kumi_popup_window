@@ -1,3 +1,7 @@
+## [1.0.4]
+* 为dismiss()法新增可选参数
+* Added optional parameters for dismiss()
+
 ## [1.0.3]
 * fix bug
 
