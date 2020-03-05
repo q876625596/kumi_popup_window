@@ -1,3 +1,7 @@
+## [1.0.5]
+* 修改默认遮罩层颜色
+* Modify the default mask layer color
+
 ## [1.0.4]
 * 为dismiss()法新增可选参数
 * Added optional parameters for dismiss()

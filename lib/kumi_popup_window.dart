@@ -290,7 +290,7 @@ class KumiPopupWindow extends StatefulWidget {
         _customAnimation = customAnimation ?? false,
         _customPop = customPop ?? false,
         _customPage = customPage ?? false,
-        _bgColor = bgColor ?? Colors.grey.withOpacity(0.5),
+        _bgColor = bgColor ?? Colors.black.withOpacity(0.5),
         _targetRenderBox = targetRenderBox,
         _childSize = childSize,
         _underStatusBar = underStatusBar ?? false,
