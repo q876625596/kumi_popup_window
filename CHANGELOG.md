@@ -1,3 +1,7 @@
+## [1.0.6]
+* dismiss()方法添加禁止动画的参数
+* dismiss () method adds a parameter that prohibits animation
+
 ## [1.0.5]
 * 修改默认遮罩层颜色
 * Modify the default mask layer color

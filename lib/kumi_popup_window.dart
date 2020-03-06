@@ -312,7 +312,14 @@ class KumiPopupWindow extends StatefulWidget {
 
   ///收起弹框
   ///popup window dismiss
-  Future dismiss(BuildContext context, {Function(KumiPopupWindow pop) onFinish}) async {
+  Future dismiss(BuildContext context, {bool notStartAnimation,Function(KumiPopupWindow pop) onFinish}) async {
+    if(notStartAnimation == true){
+      Navigator.pop(context);
+      if (onFinish != null) {
+        onFinish(this);
+      }
+      return;
+    }
     await _controller.reverse();
     Navigator.pop(context);
     if (onFinish != null) {
