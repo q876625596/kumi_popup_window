@@ -1,3 +1,7 @@
+## [1.0.7]
+* 新增isShow属性
+* Added isShow property
+
 ## [1.0.6]
 * dismiss()方法添加禁止动画的参数
 * dismiss () method adds a parameter that prohibits animation

@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.6
+  kumi_popup_window: ^1.0.7
 ```
 
 **2.导入**
@@ -88,6 +88,7 @@ clickBackDismiss|点击物理返回按钮是否收起|true
 offsetX|横轴贴边处偏移量|0.0
 offsetY|纵轴贴边处偏移量|0.0
 duration|动画的时长|Duration(milliseconds: 200)
+isShow|当前弹框是否已经显示|false
 onShowStart|弹出动画开始的监听|null
 onShowEnd|弹出动画结束的监听|null
 onDismissStart|收起动画开始的监听|null

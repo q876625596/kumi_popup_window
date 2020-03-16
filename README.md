@@ -10,7 +10,7 @@ A simple and easy-to-use pop-up window. There are no flashy preset templates. Ev
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.6
+  kumi_popup_window: ^1.0.7
 ```
 
 **2.Import**
@@ -88,6 +88,7 @@ clickBackDismiss|Click the physical back button to dismiss|true
 offsetX|Offset at horizontal axis edge|0.0
 offsetY|Offset at vertical axis edge|0.0
 duration|Duration of the animation|Duration(milliseconds: 200)
+isShow|Whether the current popup frame is displayed|false
 onShowStart|When the popupWindow show animation start|null
 onShowEnd|When the popupWindow show animation finish|null
 onDismissStart|When the popupWindow dismiss animation start|null

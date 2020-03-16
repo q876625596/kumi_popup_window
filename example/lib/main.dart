@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 
@@ -48,6 +47,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey btnKey = GlobalKey();
   KumiPopupWindow popupWindow;
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text("popup"),
             color: Colors.redAccent,
             onPressed: () {
-             /* if (popupWindow == null) {
+              /* if (popupWindow == null) {
                 popupWindow = createPopupWindow(
                   context,
                   gravity: KumiPopupGravity.rightBottom,
@@ -143,10 +143,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 onDismissFinish: (pop) {
                   print("dismissFinish");
                 },
-                onClickOut: (pop){
+                onClickOut: (pop) {
                   print("onClickOut");
                 },
-                onClickBack: (pop){
+                onClickBack: (pop) {
                   print("onClickBack");
                 },
                 childFun: (controller) {

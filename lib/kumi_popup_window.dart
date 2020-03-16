@@ -49,12 +49,7 @@ KumiPopupWindow showPopupWindow<T>(
     onClickOut: onClickOut,
     onClickBack: onClickBack,
   );
-  Navigator.push(
-    context,
-    PopRoute(
-      child: popup,
-    ),
-  );
+  popup.show(context);
   return popup;
 }
 
@@ -312,8 +307,9 @@ class KumiPopupWindow extends StatefulWidget {
 
   ///收起弹框
   ///popup window dismiss
-  Future dismiss(BuildContext context, {bool notStartAnimation,Function(KumiPopupWindow pop) onFinish}) async {
-    if(notStartAnimation == true){
+  Future dismiss(BuildContext context, {bool notStartAnimation, Function(KumiPopupWindow pop) onFinish}) async {
+    _isShow = false;
+    if (notStartAnimation == true) {
       Navigator.pop(context);
       if (onFinish != null) {
         onFinish(this);
@@ -336,7 +332,12 @@ class KumiPopupWindow extends StatefulWidget {
         child: this,
       ),
     );
+    _isShow = true;
   }
+
+  bool _isShow;
+
+  bool get isShow => _isShow;
 }
 
 class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProviderStateMixin {

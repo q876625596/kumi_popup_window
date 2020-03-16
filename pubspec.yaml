@@ -1,6 +1,6 @@
 name: kumi_popup_window
 description: A simple and easy-to-use pop-up window. There are no flashy preset templates. Everything you want to pop up is customized by you.
-version: 1.0.6
+version: 1.0.7
 homepage: https://github.com/q876625596/kumi_popup_window
 
 environment:
