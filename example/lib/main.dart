@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 
+import 'kumi_popup_window.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -47,6 +49,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey btnKey = GlobalKey();
   KumiPopupWindow popupWindow;
+
+  ValueNotifier<bool> isSelect = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -149,13 +153,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 onClickBack: (pop) {
                   print("onClickBack");
                 },
-                childFun: (controller) {
-                  return Container(
+                childFun: (pop) {
+                  return GestureDetector(
                     key: GlobalKey(),
-                    padding: EdgeInsets.all(10),
-                    height: 100,
-                    width: 100,
-                    color: Colors.redAccent,
+                    onTap: () {
+                      isSelect.value = !isSelect.value;
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      height: 100,
+                      width: 100,
+                      color: Colors.redAccent,
+                      alignment: Alignment.center,
+                      child: ValueListenableBuilder(
+                          valueListenable: isSelect,
+                          builder: (context, bool select, child) {
+                            return Text(isSelect.value.toString());
+                          }),
+                    ),
                   );
                 },
               );
