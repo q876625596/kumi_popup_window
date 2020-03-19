@@ -69,6 +69,9 @@ showPopupWindow(
 
 ```
 
+**note**
+**Please use ValueNotifier for data update, don't use setState, usage can be Baidu, Google, or see [example] (example/lib/main.dart)**
+
 Brief description, see [here](lib/kumi_popup_window.dart) for details
 
 

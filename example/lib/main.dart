@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 
-import 'kumi_popup_window.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {

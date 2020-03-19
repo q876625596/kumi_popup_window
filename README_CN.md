@@ -69,6 +69,9 @@ showPopupWindow(
 
 ```
 
+**注意**
+**数据更新请使用ValueNotifier，不要使用setState，用法可Baidu，Google，或者查看[示例](example/lib/main.dart)**
+
 简要说明，详细说明请看[这里](lib/kumi_popup_window.dart)
 
 
