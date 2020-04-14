@@ -475,33 +475,30 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
       return WillPopScope(
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            body: SafeArea(
-              top: false,
-              child: Stack(
-                children: <Widget>[
-                  Positioned(
-                    child: GestureDetector(
-                      child: FadeTransition(
-                        opacity: Tween(begin: 0.0, end: 1.0).animate(widget._controller),
-                        child: Container(
-                          alignment: Alignment.center,
-                          color: widget._bgColor,
-                        ),
+            body: Stack(
+              children: <Widget>[
+                Positioned(
+                  child: GestureDetector(
+                    child: FadeTransition(
+                      opacity: Tween(begin: 0.0, end: 1.0).animate(widget._controller),
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: widget._bgColor,
                       ),
-                      onTap: () {
-                        if (widget._clickOutDismiss) {
-                          widget.dismiss(context);
-                          return;
-                        }
-                        if (widget._onClickOut != null) {
-                          widget._onClickOut(widget);
-                        }
-                      },
                     ),
+                    onTap: () {
+                      if (widget._clickOutDismiss) {
+                        widget.dismiss(context);
+                        return;
+                      }
+                      if (widget._onClickOut != null) {
+                        widget._onClickOut(widget);
+                      }
+                    },
                   ),
-                  widget._child,
-                ],
-              ),
+                ),
+                widget._child,
+              ],
             ),
           ),
           onWillPop: () {
@@ -909,34 +906,31 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
     return WillPopScope(
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: SafeArea(
-            top: false,
-            child: Stack(
-              overflow: Overflow.visible,
-              children: <Widget>[
-                Positioned(
-                  child: GestureDetector(
-                    child: FadeTransition(
-                      opacity: Tween(begin: 0.0, end: 1.0).animate(widget._controller),
-                      child: Container(
-                        alignment: Alignment.center,
-                        color: widget._bgColor,
-                      ),
+          body: Stack(
+            overflow: Overflow.visible,
+            children: <Widget>[
+              Positioned(
+                child: GestureDetector(
+                  child: FadeTransition(
+                    opacity: Tween(begin: 0.0, end: 1.0).animate(widget._controller),
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: widget._bgColor,
                     ),
-                    onTap: () {
-                      if (widget._clickOutDismiss) {
-                        widget.dismiss(context);
-                        return;
-                      }
-                      if (widget._onClickOut != null) {
-                        widget._onClickOut(widget);
-                      }
-                    },
                   ),
+                  onTap: () {
+                    if (widget._clickOutDismiss) {
+                      widget.dismiss(context);
+                      return;
+                    }
+                    if (widget._onClickOut != null) {
+                      widget._onClickOut(widget);
+                    }
+                  },
                 ),
-                childView,
-              ],
-            ),
+              ),
+              childView,
+            ],
           ),
         ),
         onWillPop: () {

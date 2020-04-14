@@ -1,3 +1,7 @@
+## [1.0.8]
+* 删除SafeArea
+* Delete SafeArea
+
 ## [1.0.7]
 * 新增isShow属性
 * Added isShow property
