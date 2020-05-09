@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -193,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584621939700</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="1.0.8 delete SafeArea">
+      <created>1586870020442</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1586870020442</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +229,7 @@
     <MESSAGE value="1.0.6 dismiss () method adds a parameter that prohibits animation" />
     <MESSAGE value="1.0.7 Added isShow property" />
     <MESSAGE value="1.0.7 change README" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.7 change README" />
+    <MESSAGE value="1.0.8 delete SafeArea" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.8 delete SafeArea" />
   </component>
 </project>

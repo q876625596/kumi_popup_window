@@ -1,3 +1,7 @@
+## [1.0.9]
+* 调用dismiss()之前判断isShow
+* Determine isShow before calling dismiss ()
+
 ## [1.0.8]
 * 删除SafeArea
 * Delete SafeArea
