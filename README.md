@@ -69,6 +69,10 @@ showPopupWindow(
 
 ```
 
+**4.Demo screen**
+
+<img src="demo/popup_1.png" height="400" alt="Screenshot"/> <img src="demo/popup_2.png" height="400" alt="Screenshot"/>
+
 **note**
 **Please use ValueNotifier for data update, don't use setState, usage can be Baidu, Google, or see [example] (example/lib/main.dart)**
 

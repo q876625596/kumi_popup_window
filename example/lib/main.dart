@@ -67,112 +67,78 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: MaterialButton(
-            key: btnKey,
-            child: Text("popup"),
-            color: Colors.redAccent,
-            onPressed: () {
-              /* if (popupWindow == null) {
-                popupWindow = createPopupWindow(
-                  context,
-                  gravity: KumiPopupGravity.rightBottom,
-                  bgColor: Colors.grey.withOpacity(0.5),
-                  clickOutDismiss: true,
-                  clickBackDismiss: true,
-                  customAnimation: false,
-                  customPop: false,
-                  customPage: false,
-                  //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
-                  underStatusBar: false,
-                  underAppBar: true,
-                  offsetX: 0,
-                  offsetY: 0,
-                  duration: Duration(milliseconds: 200),
-                  onShowStart: (pop) {
-                    print("showStart");
-                  },
-                  onShowFinish: (pop) {
-                    print("showFinish");
-                  },
-                  onDismissStart: (pop) {
-                    print("dismissStart");
-                  },
-                  onDismissFinish: (pop) {
-                    print("dismissFinish");
-                  },
-                  onClickOut: (pop){
-                    print("onClickOut");
-                  },
-                  onClickBack: (pop){
-                    print("onClickBack");
-                  },
-                  childFun: (controller) {
-                    return Container(
-                      key: GlobalKey(),
-                      padding: EdgeInsets.all(10),
-                      height: 100,
-                      width: 100,
-                      color: Colors.redAccent,
-                    );
-                  },
-                );
-              }
-              popupWindow.show(context);*/
-              showPopupWindow(
-                context,
-                gravity: KumiPopupGravity.rightBottom,
-                bgColor: Colors.grey.withOpacity(0.5),
-                clickOutDismiss: true,
-                clickBackDismiss: true,
-                customAnimation: false,
-                customPop: false,
-                customPage: false,
-                //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
-                underStatusBar: false,
-                underAppBar: true,
-                offsetX: 0,
-                offsetY: 0,
-                duration: Duration(milliseconds: 200),
-                onShowStart: (pop) {
-                  print("showStart");
-                },
-                onShowFinish: (pop) {
-                  print("showFinish");
-                },
-                onDismissStart: (pop) {
-                  print("dismissStart");
-                },
-                onDismissFinish: (pop) {
-                  print("dismissFinish");
-                },
-                onClickOut: (pop) {
-                  print("onClickOut");
-                },
-                onClickBack: (pop) {
-                  print("onClickBack");
-                },
-                childFun: (pop) {
-                  return GestureDetector(
-                    key: GlobalKey(),
-                    onTap: () {
-                      isSelect.value = !isSelect.value;
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ValueListenableBuilder(
+                  valueListenable: isSelect,
+                  builder: (context, bool select, child) {
+                  return Text(isSelect.value == false ? "popup child function onclick is false" : "popup child function onclick is true");
+             }),
+            SizedBox(height: 20,),
+            MaterialButton(
+                key: btnKey,
+                height: 50,
+                child: Text("popup"),
+                color: Colors.redAccent,
+                onPressed: () {
+                  showPopupWindow(
+                    context,
+                    gravity: KumiPopupGravity.rightBottom,
+                    bgColor: Colors.grey.withOpacity(0.5),
+                    clickOutDismiss: true,
+                    clickBackDismiss: true,
+                    customAnimation: false,
+                    customPop: false,
+                    customPage: false,
+                    //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+                    underStatusBar: false,
+                    underAppBar: true,
+                    offsetX: 5,
+                    offsetY: 5,
+                    duration: Duration(milliseconds: 200),
+                    onShowStart: (pop) {
+                      print("showStart");
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      height: 100,
-                      width: 100,
-                      color: Colors.redAccent,
-                      alignment: Alignment.center,
-                      child: ValueListenableBuilder(
-                          valueListenable: isSelect,
-                          builder: (context, bool select, child) {
-                            return Text(isSelect.value.toString());
-                          }),
-                    ),
+                    onShowFinish: (pop) {
+                      print("showFinish");
+                    },
+                    onDismissStart: (pop) {
+                      print("dismissStart");
+                    },
+                    onDismissFinish: (pop) {
+                      print("dismissFinish");
+                    },
+                    onClickOut: (pop) {
+                      print("onClickOut");
+                    },
+                    onClickBack: (pop) {
+                      print("onClickBack");
+                    },
+                    childFun: (pop) {
+                      return GestureDetector(
+                        key: GlobalKey(),
+                        onTap: () {
+                          isSelect.value = !isSelect.value;
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          height: 100,
+                          width: 240,
+                          color: Colors.redAccent,
+                          alignment: Alignment.center,
+                          child: ValueListenableBuilder(
+                              valueListenable: isSelect,
+                              builder: (context, bool select, child) {
+                                return Text(isSelect.value.toString());
+                              }),
+                        ),
+                      );
+                    },
                   );
-                },
-              );
-            }),
+                }),
+          ],
+        ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
