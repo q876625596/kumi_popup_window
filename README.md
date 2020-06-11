@@ -10,7 +10,7 @@ A simple and easy-to-use pop-up window. There are no flashy preset templates. Ev
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.9
+  kumi_popup_window: ^1.0.10
 ```
 
 **2.Import**

@@ -1,3 +1,8 @@
+## [1.0.10]
+* 测试升级到flutter 1.7.3版本成功
+* Flutter upgrade to 1.7.3 test success
+
+
 ## [1.0.9]
 * 调用dismiss()之前判断isShow
 * Determine isShow before calling dismiss ()
