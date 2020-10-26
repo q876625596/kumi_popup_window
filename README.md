@@ -10,7 +10,7 @@ A simple and easy-to-use pop-up window. There are no flashy preset templates. Ev
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.10
+  kumi_popup_window: ^1.0.11
 ```
 
 **2.Import**
@@ -25,6 +25,7 @@ import 'package:kumi_popup_window/kumi_popup_window.dart';
 showPopupWindow(
   context,
   gravity: KumiPopupGravity.rightBottom,
+  //curve: Curves.elasticOut,
   bgColor: Colors.grey.withOpacity(0.5),
   clickOutDismiss: true,
   clickBackDismiss: true,
@@ -32,7 +33,6 @@ showPopupWindow(
   customPop: false,
   customPage: false,
   //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
-  //childSize: null,
   underStatusBar: false,
   underAppBar: true,
   offsetX: 0,
@@ -74,7 +74,7 @@ showPopupWindow(
 <img src="demo/popup_1.png" height="400" alt="Screenshot"/> <img src="demo/popup_2.png" height="400" alt="Screenshot"/>
 
 **note**
-**Please use ValueNotifier for data update, don't use setState, usage can be Baidu, Google, or see [example] (example/lib/main.dart)**
+**Data update if using setState, please see [example] (example/lib/main.dart)**
 
 Brief description, see [here](lib/kumi_popup_window.dart) for details
 
@@ -83,6 +83,7 @@ params|description|default
 --|--|--|
 childFun|Method for customizing the content of the popup window. The returned widget will be used as the content of the popup window|null，(require)
 gravity|Relative position of the pop-up window.|KumiPopupGravity.center
+curve|Animation interpolator|Curves.decelerate
 customAnimation|Custom popupWindow animation|false
 customPop|Customize the position and animation of popupWindow|false
 customPage|Customize the entire page, including Scaffold|false
@@ -94,8 +95,7 @@ clickOutDismiss|Click outside the pop-up window to dismiss|true
 clickBackDismiss|Click the physical back button to dismiss|true
 offsetX|Offset at horizontal axis edge|0.0
 offsetY|Offset at vertical axis edge|0.0
-duration|Duration of the animation|Duration(milliseconds: 200)
-isShow|Whether the current popup frame is displayed|false
+duration|Duration of the animation|Duration(milliseconds: 300)
 onShowStart|When the popupWindow show animation start|null
 onShowEnd|When the popupWindow show animation finish|null
 onDismissStart|When the popupWindow dismiss animation start|null
@@ -106,6 +106,7 @@ onClickBack|Listening on clicking the physical back button|null
 property/method|description
 --|--|
 child|Popup window widget,Get its size and position by GlobalKey
+isShow|Is the current pop-up displayed
 controller|Animation Controller
 show()|popup window show
 dismiss()|popup window dismiss

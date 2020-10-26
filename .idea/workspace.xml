@@ -3,12 +3,24 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_CN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kumi_popup_window.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kumi_popup_window.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,24 +46,26 @@
   <component name="ProjectId" id="1YRC6Lho0BTGE5QaOl9GqQxDMWq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/lib" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\FlutterProject\kumi_popup_window\example\lib" />
+      <recent name="D:\FlutterProject\kumi_popup_window\lib" />
       <recent name="F:\project\flutterProject\kumi_popup_window\example\lib" />
       <recent name="\" />
       <recent name="$PROJECT_DIR$/example/lib" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\project\flutterProject\kumi_popup_window\lib" />
@@ -215,13 +229,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0.0" />
@@ -239,29 +252,41 @@
     <option name="LAST_COMMIT_MESSAGE" value="1.0.10 Flutter version upgrade to 1.7.3 test success" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="837" y="109" key="CommitChangelistDialog2" timestamp="1591861815783">
+    <state x="793" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603725836044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="837" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591861815783" />
-    <state x="627" y="100" width="1200" height="840" key="DiffContextDialog" timestamp="1591860926537">
+    <state x="793" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603725836044" />
+    <state x="360" y="120" width="1406" height="800" key="AVDManager" timestamp="1603717803441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="627" y="100" width="1200" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591860926537" />
-    <state x="1007" y="275" key="FileChooserDialogImpl" timestamp="1591860779020">
+    <state x="360" y="120" width="1406" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1603717803441" />
+    <state x="843" y="274" key="FileChooserDialogImpl" timestamp="1603717211948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1007" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591860779020" />
-    <state x="728" y="162" key="SettingsEditor" timestamp="1591860783593">
+    <state x="843" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603717211948" />
+    <state width="1546" height="258" key="GridCell.Tab.0.bottom" timestamp="1603726125874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="728" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591860783593" />
-    <state x="819" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591861821009">
+    <state width="1546" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
+    <state width="1546" height="258" key="GridCell.Tab.0.center" timestamp="1603726125874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="819" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591861821009" />
-    <state x="1012" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591861522702">
+    <state width="1546" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
+    <state width="1546" height="258" key="GridCell.Tab.0.left" timestamp="1603726125874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1012" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591861522702" />
+    <state width="1546" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
+    <state width="1546" height="258" key="GridCell.Tab.0.right" timestamp="1603726125874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1546" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
+    <state x="564" y="164" key="SettingsEditor" timestamp="1603726665495">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603726665495" />
+    <state x="857" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603727845590">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="857" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603727845590" />
   </component>
 </project>

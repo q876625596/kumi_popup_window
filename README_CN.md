@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.10
+  kumi_popup_window: ^1.0.11
 ```
 
 **2.导入**
@@ -25,6 +25,7 @@ import 'package:kumi_popup_window/kumi_popup_window.dart';
 showPopupWindow(
   context,
   gravity: KumiPopupGravity.rightBottom,
+  //curve: Curves.elasticOut,
   bgColor: Colors.grey.withOpacity(0.5),
   clickOutDismiss: true,
   clickBackDismiss: true,
@@ -32,7 +33,6 @@ showPopupWindow(
   customPop: false,
   customPage: false,
   //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
-  //childSize: null,
   underStatusBar: false,
   underAppBar: true,
   offsetX: 0,
@@ -70,7 +70,7 @@ showPopupWindow(
 ```
 
 **注意**
-**数据更新请使用ValueNotifier，不要使用setState，用法可Baidu，Google，或者查看[示例](example/lib/main.dart)**
+**数据更新如果使用setState，请查看[示例](example/lib/main.dart)**
 
 简要说明，详细说明请看[这里](lib/kumi_popup_window.dart)
 
@@ -79,6 +79,7 @@ showPopupWindow(
 --|--|--|
 childFun|自定义弹出框内容的方法，返回的widget将作为弹出框内容|无默认，必填
 gravity|弹出框的相对位置|KumiPopupGravity.center
+curve|动画插值器|Curves.decelerate
 customAnimation|自定义popupWindow的动画|false
 customPop|自定义popupWindow的位置与动画|false
 customPage|自定义整个页面，包括Scaffold|false
@@ -90,8 +91,7 @@ clickOutDismiss|点击弹出框以外的区域是否收起|true
 clickBackDismiss|点击物理返回按钮是否收起|true
 offsetX|横轴贴边处偏移量|0.0
 offsetY|纵轴贴边处偏移量|0.0
-duration|动画的时长|Duration(milliseconds: 200)
-isShow|当前弹框是否已经显示|false
+duration|动画的时长|Duration(milliseconds: 300)
 onShowStart|弹出动画开始的监听|null
 onShowEnd|弹出动画结束的监听|null
 onDismissStart|收起动画开始的监听|null
@@ -102,6 +102,7 @@ onClickBack|点击物理返回按钮的监听|null
 属性/方法|描述
 --|--|
 child|弹出框的widget,可通过GlobalKey获取其尺寸和位置
+isShow|当前弹框是否已经显示
 controller|动画控制器
 show()|显示popup window
 dismiss()|收起popup window

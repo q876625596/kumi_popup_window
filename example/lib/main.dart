@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 
@@ -49,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   KumiPopupWindow popupWindow;
 
   ValueNotifier<bool> isSelect = ValueNotifier(false);
+  var aaa = "false";
 
   @override
   Widget build(BuildContext context) {
@@ -71,20 +73,56 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ValueListenableBuilder(
-                  valueListenable: isSelect,
-                  builder: (context, bool select, child) {
+                valueListenable: isSelect,
+                builder: (context, bool select, child) {
                   return Text(isSelect.value == false ? "popup child function onclick is false" : "popup child function onclick is true");
-             }),
-            SizedBox(height: 20,),
+                }),
+            SizedBox(
+              height: 20,
+            ),
             MaterialButton(
                 key: btnKey,
                 height: 50,
                 child: Text("popup"),
                 color: Colors.redAccent,
                 onPressed: () {
+                  /*showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (BuildContext context) {
+                        return StatefulBuilder(
+                          builder: (context1, StateSetter setBottomSheetState) {
+                            return SingleChildScrollView(
+                              child: Container(
+                                padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        setBottomSheetState(() {
+                                        aaa = "true";
+                                      });
+                                      },
+                                      child: Text("asdasdasd"),
+                                    ),
+                                    TextField(
+                                      controller: TextEditingController(text: aaa),
+                                      keyboardType: TextInputType.number,
+                                      inputFormatters: [WhitelistingTextInputFormatter.digitsOnly], //只允许输入数字
+                                      textInputAction: TextInputAction.done,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      });*/
                   showPopupWindow(
                     context,
-                    gravity: KumiPopupGravity.rightBottom,
+                    gravity: KumiPopupGravity.centerBottom,
+                    //curve: Curves.elasticOut,
                     bgColor: Colors.grey.withOpacity(0.5),
                     clickOutDismiss: true,
                     clickBackDismiss: true,
@@ -94,9 +132,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
                     underStatusBar: false,
                     underAppBar: true,
-                    offsetX: 5,
-                    offsetY: 5,
-                    duration: Duration(milliseconds: 200),
+                    //offsetX: 5,
+                    //offsetY: 5,
+                    duration: Duration(milliseconds: 300),
                     onShowStart: (pop) {
                       print("showStart");
                     },
@@ -116,24 +154,26 @@ class _MyHomePageState extends State<MyHomePage> {
                       print("onClickBack");
                     },
                     childFun: (pop) {
-                      return GestureDetector(
-                        key: GlobalKey(),
-                        onTap: () {
-                          isSelect.value = !isSelect.value;
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          height: 100,
-                          width: 240,
-                          color: Colors.redAccent,
-                          alignment: Alignment.center,
-                          child: ValueListenableBuilder(
-                              valueListenable: isSelect,
-                              builder: (context, bool select, child) {
-                                return Text(isSelect.value.toString());
-                              }),
-                        ),
-                      );
+                      return StatefulBuilder(
+                          key: GlobalKey(),
+                          builder: (popContext, popState) {
+                            return GestureDetector(
+                              onTap: () {
+                                //isSelect.value = !isSelect.value;
+                                popState(() {
+                                  aaa = "sasdasd";
+                                });
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                height: 200,
+                                width: 240,
+                                color: Colors.redAccent,
+                                alignment: Alignment.center,
+                                child: Text(aaa),
+                              ),
+                            );
+                          });
                     },
                   );
                 }),

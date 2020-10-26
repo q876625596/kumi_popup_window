@@ -1,3 +1,9 @@
+## [1.0.11]
+* 测试升级到flutter 1.22.2版本成功
+* 优化动画，新增curve属性用于自定义插值器
+* Flutter upgrade to 1.22.2 test success
+* Optimize animation, add curve attribute for custom interpolator
+
 ## [1.0.10]
 * 测试升级到flutter 1.7.3版本成功
 * Flutter upgrade to 1.7.3 test success
