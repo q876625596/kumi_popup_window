@@ -1,3 +1,9 @@
+## [1.0.12]
+* 新增弹出框的安全显示控制参数needSafeDisplay，详见注释
+* 优化相对于屏幕的弹出框，如果是相对于屏幕的弹框，可以不写宽高，默认可撑满屏幕
+* Newly added security display control parameter needsafedisplay in pop-up box, see note for details
+* Optimize the pop-up box relative to the screen. If it is a pop-up box relative to the screen, you can not write the width and height. By default, it can hold the full screen
+
 ## [1.0.11]
 * 测试升级到flutter 1.22.2版本成功
 * 优化动画，新增curve属性用于自定义插值器
@@ -7,7 +13,6 @@
 ## [1.0.10]
 * 测试升级到flutter 1.7.3版本成功
 * Flutter upgrade to 1.7.3 test success
-
 
 ## [1.0.9]
 * 调用dismiss()之前判断isShow

@@ -7,7 +7,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="" />
+    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="1.0.11 &#10;* Flutter upgrade to 1.22.2 test success&#10;* Optimize animation, add curve attribute for custom interpolator">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_CN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kumi_popup_window.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kumi_popup_window.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +29,7 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[e672700f]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -41,20 +54,20 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/lib" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\project\flutterProject\kumi_popup_window\lib" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\FlutterProject\kumi_popup_window\example\lib" />
       <recent name="D:\FlutterProject\kumi_popup_window\lib" />
+      <recent name="D:\FlutterProject\kumi_popup_window\example\lib" />
       <recent name="F:\project\flutterProject\kumi_popup_window\example\lib" />
       <recent name="\" />
       <recent name="$PROJECT_DIR$/example/lib" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\project\flutterProject\kumi_popup_window\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -246,42 +259,42 @@
     <option name="LAST_COMMIT_MESSAGE" value="1.0.11 &#10;* Flutter upgrade to 1.22.2 test success&#10;* Optimize animation, add curve attribute for custom interpolator" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="793" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603725836044">
+    <state x="793" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604049701819">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="793" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603725836044" />
+    <state x="793" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604049701819" />
     <state x="360" y="120" width="1406" height="800" key="AVDManager" timestamp="1603717803441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="360" y="120" width="1406" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1603717803441" />
-    <state x="661" y="81" key="CommitChangelistDialog2" timestamp="1603727878838">
+    <state x="661" y="81" key="CommitChangelistDialog2" timestamp="1604049923391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603727878838" />
+    <state x="661" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604049923391" />
     <state x="843" y="274" key="FileChooserDialogImpl" timestamp="1603717211948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="843" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603717211948" />
-    <state width="1546" height="258" key="GridCell.Tab.0.bottom" timestamp="1603726125874">
+    <state width="1340" height="258" key="GridCell.Tab.0.bottom" timestamp="1604049990768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1546" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
-    <state width="1546" height="258" key="GridCell.Tab.0.center" timestamp="1603726125874">
+    <state width="1340" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
+    <state width="1340" height="258" key="GridCell.Tab.0.center" timestamp="1604049990768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1546" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
-    <state width="1546" height="258" key="GridCell.Tab.0.left" timestamp="1603726125874">
+    <state width="1340" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
+    <state width="1340" height="258" key="GridCell.Tab.0.left" timestamp="1604049990768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1546" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
-    <state width="1546" height="258" key="GridCell.Tab.0.right" timestamp="1603726125874">
+    <state width="1340" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
+    <state width="1340" height="258" key="GridCell.Tab.0.right" timestamp="1604049990768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1546" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603726125874" />
-    <state x="564" y="164" key="SettingsEditor" timestamp="1603726665495">
+    <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
+    <state x="564" y="164" key="SettingsEditor" timestamp="1604049986776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603726665495" />
+    <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604049986776" />
     <state x="655" y="252" key="Vcs.Push.Dialog.v2" timestamp="1603727894090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -290,5 +303,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="857" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603727845590" />
+    <state x="675" y="215" width="598" height="594" key="find.popup" timestamp="1604042739767">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="675" y="215" width="598" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604042739767" />
+    <state x="630" y="238" key="run.anything.popup" timestamp="1604043927733">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="630" y="238" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604043927733" />
   </component>
 </project>

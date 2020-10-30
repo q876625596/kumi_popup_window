@@ -10,7 +10,7 @@ A simple and easy-to-use pop-up window. There are no flashy preset templates. Ev
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^1.0.11
+  kumi_popup_window: ^1.0.12
 ```
 
 **2.Import**
@@ -33,6 +33,7 @@ showPopupWindow(
   customPop: false,
   customPage: false,
   //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+  //needSafeDisplay: true,
   underStatusBar: false,
   underAppBar: true,
   offsetX: 0,
@@ -96,6 +97,7 @@ clickBackDismiss|Click the physical back button to dismiss|true
 offsetX|Offset at horizontal axis edge|0.0
 offsetY|Offset at vertical axis edge|0.0
 duration|Duration of the animation|Duration(milliseconds: 300)
+needSafeDisplay|Do you need to display pop ups safely|false
 onShowStart|When the popupWindow show animation start|null
 onShowEnd|When the popupWindow show animation finish|null
 onDismissStart|When the popupWindow dismiss animation start|null

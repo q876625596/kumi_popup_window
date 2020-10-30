@@ -121,7 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       });*/
                   showPopupWindow(
                     context,
-                    gravity: KumiPopupGravity.centerBottom,
+                    //childSize:Size(240, 800),
+                    gravity: KumiPopupGravity.rightBottom,
                     //curve: Curves.elasticOut,
                     bgColor: Colors.grey.withOpacity(0.5),
                     clickOutDismiss: true,
@@ -129,11 +130,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     customAnimation: false,
                     customPop: false,
                     customPage: false,
-                    //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+                    // targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+                    //needSafeDisplay: true,
                     underStatusBar: false,
-                    underAppBar: true,
-                    //offsetX: 5,
-                    //offsetY: 5,
+                    underAppBar: false,
+                    //offsetX: -180,
+                    //offsetY: 50,
                     duration: Duration(milliseconds: 300),
                     onShowStart: (pop) {
                       print("showStart");
@@ -166,8 +168,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                               child: Container(
                                 padding: EdgeInsets.all(10),
-                                height: 200,
-                                width: 240,
+                                height: 800,
+                                width: 300,
                                 color: Colors.redAccent,
                                 alignment: Alignment.center,
                                 child: Text(aaa),

@@ -5,6 +5,7 @@ import 'PopRoute.dart';
 KumiPopupWindow showPopupWindow<T>(
   BuildContext context, {
   Widget Function(KumiPopupWindow popup) childFun,
+  Size childSize,
   KumiPopupGravity gravity,
   Curve curve,
   bool customAnimation,
@@ -19,6 +20,7 @@ KumiPopupWindow showPopupWindow<T>(
   double offsetX,
   double offsetY,
   Duration duration,
+  bool needSafeDisplay,
   Function(KumiPopupWindow popup) onShowStart,
   Function(KumiPopupWindow popup) onShowFinish,
   Function(KumiPopupWindow popup) onDismissStart,
@@ -34,6 +36,7 @@ KumiPopupWindow showPopupWindow<T>(
     customPage: customPage,
     bgColor: bgColor,
     childFun: childFun,
+    childSize: childSize,
     targetRenderBox: targetRenderBox,
     underStatusBar: underStatusBar,
     underAppBar: underAppBar,
@@ -42,6 +45,7 @@ KumiPopupWindow showPopupWindow<T>(
     offsetX: offsetX,
     offsetY: offsetY,
     duration: duration,
+    needSafeDisplay: needSafeDisplay,
     onShowStart: onShowStart,
     onShowFinish: onShowFinish,
     onDismissStart: onDismissStart,
@@ -56,6 +60,7 @@ KumiPopupWindow showPopupWindow<T>(
 KumiPopupWindow createPopupWindow<T>(
   BuildContext context, {
   Widget Function(KumiPopupWindow popup) childFun,
+  Size childSize,
   KumiPopupGravity gravity,
   bool customAnimation,
   bool customPop,
@@ -69,6 +74,7 @@ KumiPopupWindow createPopupWindow<T>(
   double offsetX,
   double offsetY,
   Duration duration,
+  bool needSafeDisplay,
   Function(KumiPopupWindow popup) onShowStart,
   Function(KumiPopupWindow popup) onShowFinish,
   Function(KumiPopupWindow popup) onDismissStart,
@@ -83,6 +89,7 @@ KumiPopupWindow createPopupWindow<T>(
     customPage: customPage,
     bgColor: bgColor,
     childFun: childFun,
+    childSize: childSize,
     targetRenderBox: targetRenderBox,
     underStatusBar: underStatusBar,
     underAppBar: underAppBar,
@@ -91,6 +98,7 @@ KumiPopupWindow createPopupWindow<T>(
     offsetX: offsetX,
     offsetY: offsetY,
     duration: duration,
+    needSafeDisplay: needSafeDisplay,
     onShowStart: onShowStart,
     onShowFinish: onShowFinish,
     onDismissStart: onDismissStart,
@@ -190,31 +198,37 @@ class KumiPopupWindow extends StatefulWidget {
   ///The default is true
   final bool _clickBackDismiss;
 
-  ///横轴贴边处偏移量
+  ///横轴贴边处相对偏移量
   ///默认为0.0
-  /// 如果 [_offsetX] > 0，向右偏移
-  /// 如果 [_offsetX] < 0，向左偏移
-  ///Offset at horizontal axis edge
-  ///The default is 0.0
-  ///If [_offsetX] > 0, offset to the right
-  ///If [_offsetX] < 0, offset to the left
-  final double _offsetX;
+  /// 如果 [_targetRenderBox] 为null，那么该值表示相对于屏幕边缘的横向偏移量，不能小于0.0
+  /// 如果 [_targetRenderBox] 不为null，那么该值表示相对于目标widget边缘的横向偏移量，小于0表示向左偏移，大于0表示向右偏移
+  ///Relative offset at the edge of the horizontal axis
+  ///The default is 0.0,Cannot be less than 0.0
+  ///If [_targetRenderBox] is null, then this value represents the horizontal offset from the edge of the screen, which cannot be less than 0.0
+  ///If [_targetRenderBox] is not null, then this value represents the horizontal offset relative to the edge of the target widget, less than 0 means left offset, and greater than 0 means right offset
+  final double _relativeOffsetX;
 
-  ///纵轴贴边处偏移量
+  ///纵轴贴边处相对偏移量
   ///默认为0.0
-  /// 如果 [_offsetY] > 0，向下偏移
-  /// 如果 [_offsetY] < 0，向上偏移
+  /// 如果 [_targetRenderBox] 为null，那么该值表示相对于屏幕边缘的纵向偏移量，不能小于0.0
+  /// 如果 [_targetRenderBox] 不为null，那么该值表示相对于目标widget边缘的纵向偏移量，小于0表示向上偏移，大于0表示向下偏移
   ///Offset at vertical axis edge
   ///The default is 0.0
-  ///If [_offsetY] > 0, offset to the down
-  ///If [_offsetY] < 0, offset to the up
-  final double _offsetY;
+  ///If [_targetRenderBox] is null, then this value represents the vertical offset relative to the edge of the screen and cannot be less than 0.0
+  ///If [_targetRenderBox] is not null, then this value represents the vertical offset relative to the edge of the target widget, less than 0 means up offset, and greater than 0 represents downward offset
+  final double _relativeOffsetY;
 
   ///动画的时长
   ///默认为 200ms
   ///Duration of the animation
   ///The default is 200ms
   final Duration _duration;
+
+  /// 是否需要安全显示弹出框
+  /// 如果为true，并且[_targetRenderBox]不为null时，当弹出框超出边界时，会自动贴边
+  /// Do you need to display pop ups safely
+  /// IfIf it is true and [_targetRenderBox] is not null, when the pop-up box exceeds the boundary, it will be automatically trimmed
+  final bool _needSafeDisplay;
 
   /// 当前弹框是否已经显示
   /// Is the current pop-up displayed
@@ -256,6 +270,8 @@ class KumiPopupWindow extends StatefulWidget {
   /// If null, it will be calculated and assigned after drawing
   Size _childSize;
 
+  Size get childSize => _childSize;
+
   ///弹出框的widget
   ///[_childFun]返回的widget
   ///Popup window widget
@@ -272,6 +288,7 @@ class KumiPopupWindow extends StatefulWidget {
 
   KumiPopupWindow({
     @required Widget Function(KumiPopupWindow popup) childFun,
+    Size childSize,
     KumiPopupGravity gravity,
     Curve curve,
     bool customAnimation,
@@ -286,6 +303,7 @@ class KumiPopupWindow extends StatefulWidget {
     double offsetX,
     double offsetY,
     Duration duration,
+    bool needSafeDisplay,
     Function(KumiPopupWindow popup) onShowStart,
     Function(KumiPopupWindow popup) onShowFinish,
     Function(KumiPopupWindow popup) onDismissStart,
@@ -293,6 +311,7 @@ class KumiPopupWindow extends StatefulWidget {
     Function(KumiPopupWindow popup) onClickOut,
     Function(KumiPopupWindow popup) onClickBack,
   })  : _childFun = childFun,
+        _childSize = childSize,
         _gravity = gravity ?? KumiPopupGravity.center,
         _curve = curve ?? Curves.decelerate,
         _customAnimation = customAnimation ?? false,
@@ -304,9 +323,10 @@ class KumiPopupWindow extends StatefulWidget {
         _underAppBar = underAppBar ?? false,
         _clickOutDismiss = clickOutDismiss ?? true,
         _clickBackDismiss = clickBackDismiss ?? true,
-        _offsetX = offsetX ?? 0,
-        _offsetY = offsetY ?? 0,
+        _relativeOffsetX = offsetX ?? 0,
+        _relativeOffsetY = offsetY ?? 0,
         _duration = duration ?? Duration(milliseconds: 300),
+        _needSafeDisplay = needSafeDisplay ?? false,
         _onShowStart = onShowStart,
         _onShowEnd = onShowFinish,
         _onDismissStart = onDismissStart,
@@ -446,7 +466,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
     return widget._underAppBar == true ? _getStatusBarAndAppBarHeight(context) : (widget._underStatusBar == true ? _getStatusBar(context) : 0);
   }
 
-  ///当popup window的中心点与屏幕中心点重合时，此时popup window的x轴坐标
+/*  ///当popup window的中心点与屏幕中心点重合时，此时popup window的x轴坐标
   ///When the center point of the popup window coincides with the center point of the screen, the x-axis coordinate of the popup window at this time
   double _getScreenCenterX() {
     MediaQueryData mediaQuery = MediaQuery.of(context);
@@ -454,8 +474,9 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
       return mediaQuery.size.width / 2;
     }
     return (mediaQuery.size.width - widget._childSize.width) / 2;
-  }
+  }*/
 
+/*
   ///当popup window的中心点与屏幕中心点重合时，此时popup window的y轴坐标
   ///When the center point of the popup window coincides with the center point of the screen, the y-axis coordinate of the popup window at this time
   double _getScreenCenterY() {
@@ -465,6 +486,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
     }
     return (mediaQuery.size.height - widget._childSize.height) / 2;
   }
+*/
 
   Widget getLayout(BuildContext context) {
     ///如果想要自定义整个页面
@@ -488,7 +510,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
             backgroundColor: Colors.transparent,
             body: Stack(
               children: <Widget>[
-                Positioned(
+                Align(
                   child: GestureDetector(
                     child: FadeTransition(
                       opacity: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
@@ -547,30 +569,42 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕左上角弹出
           ///If the position is relative to the screen，Pop up from the top left corner of the screen
-          childView = Positioned(
-            left: widget._offsetX,
-            top: _getTopPadding(context) + widget._offsetY,
-            child: widget._customAnimation
-                ? widget._child
-                : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: SlideTransition(
-                      position: Tween(begin: Offset(-1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                        child: widget._child,
+          childView = Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: widget._relativeOffsetX,
+                top: _getTopPadding(context) + widget._relativeOffsetY,
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : ScaleTransition(
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: SlideTransition(
+                        position: Tween(begin: Offset(-1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: FadeTransition(
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          child: widget._child,
+                        ),
                       ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeWidth = 0.0;
+          var safeHeight = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeWidth = widget._childSize.width - widget._relativeOffsetX - targetOffset.dx;
+            safeHeight = widget._childSize.height - widget._relativeOffsetY - targetOffset.dy;
+          }
+
           ///如果位置相对于目标widget，从目标widget的左上角弹出
           ///弹出之前，弹出框左上角与目标widget的左上角对齐
           ///If the position is relative to the target widget, pop up from the upper left corner of the target widget
           ///Before popup, the upper left corner of the popup box is aligned with the upper left corner of the target widget
           childView = Positioned(
-            left: targetOffset.dx + widget._offsetX,
-            top: targetOffset.dy + widget._offsetY,
+            left: targetOffset.dx + widget._relativeOffsetX + (safeWidth > 0 ? safeWidth : 0),
+            top: targetOffset.dy + widget._relativeOffsetY + (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -590,27 +624,36 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕正上方弹出
           ///If the position is relative to the screen，Pop up from the top center corner of the screen
-          childView = Positioned(
-            left: _getScreenCenterX() + widget._offsetX,
-            top: _getTopPadding(context) + widget._offsetY,
-            child: widget._customAnimation
-                ? widget._child
-                : SlideTransition(
-                    position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: FadeTransition(
-                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: widget._child,
+          childView = Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: _getTopPadding(context) + widget._relativeOffsetY,
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : SlideTransition(
+                      position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: FadeTransition(
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: widget._child,
+                      ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeHeight = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeHeight = widget._childSize.height - widget._relativeOffsetY - targetOffset.dy;
+          }
+
           ///如果位置相对于目标widget，从目标widget的正上方弹出
           ///弹出之前，弹出框的x轴中心点与目标widget的x轴中心点对齐，弹出框的上边与目标widget的上边对齐
           ///If the position is relative to the target widget, pop up from directly above the target widget
           ///Before the pop-up, the x-axis center point of the popup window is aligned with the x-axis center point of the target widget, and the top of the popup window is aligned with the top of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._offsetX,
-            top: targetOffset.dy + widget._offsetY,
+            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._relativeOffsetX,
+            top: targetOffset.dy + widget._relativeOffsetY + (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -630,30 +673,45 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕右上角弹出
           ///If the position is relative to the screen，Pop up from the top right corner of the screen
-          childView = Positioned(
-            right: -widget._offsetX,
-            top: _getTopPadding(context) + widget._offsetY,
-            child: widget._customAnimation
-                ? widget._child
-                : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: SlideTransition(
-                      position: Tween(begin: Offset(1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                        child: widget._child,
+          childView = Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: EdgeInsets.only(
+                right: widget._relativeOffsetX,
+                top: _getTopPadding(context) + widget._relativeOffsetY,
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : ScaleTransition(
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: SlideTransition(
+                        position: Tween(begin: Offset(1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: FadeTransition(
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          child: widget._child,
+                        ),
                       ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeWidth = 0.0;
+          var safeHeight = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+            safeHeight = widget._childSize.height - widget._relativeOffsetY - targetOffset.dy;
+          }
+
           ///如果位置相对于目标widget，从目标widget的右上方弹出
           ///弹出之前，弹出框的右上角与目标widget的右上角对齐
           ///If the position is relative to the target widget, pop up from the upper right of the target widget
           ///Before popup, the upper right corner of the popup box is aligned with the upper right corner of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) + widget._offsetX,
-            top: targetOffset.dy + widget._offsetY,
+            left: targetOffset.dx -
+                (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) +
+                widget._relativeOffsetX -
+                (safeWidth > 0 ? safeWidth : 0),
+            top: targetOffset.dy + widget._relativeOffsetY + (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -673,27 +731,37 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕正左方弹出
           ///If the position is relative to the screen, pop up from the left of the screen
-          childView = Positioned(
-            left: widget._offsetX,
-            top: _getScreenCenterY() + widget._offsetY + _getTopPadding(context) / 2,
-            child: widget._customAnimation
-                ? widget._child
-                : SlideTransition(
-                    position: Tween(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: FadeTransition(
-                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: widget._child,
+          childView = Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: widget._relativeOffsetX,
+                top: _getTopPadding(context),
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : SlideTransition(
+                      position: Tween(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: FadeTransition(
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: widget._child,
+                      ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeWidth = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+          }
+
           ///如果位置相对于目标widget，从目标widget的正左方弹出
           ///弹出之前，弹出框的y轴中心点与目标widget的y轴中心点对齐，弹出框的左边与目标widget的左边对齐
           ///If the position is relative to the target widget, pop up from the left of the target widget
           ///Before the pop-up, the y-axis center point of the popup window is aligned with the y-axis center point of the target widget, and the left side of the popup window is aligned with the left side of the target widget
           childView = Positioned(
-            left: targetOffset.dx + widget._offsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._offsetY,
+            left: targetOffset.dx + widget._relativeOffsetX + (safeWidth > 0 ? safeWidth : 0),
+            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._relativeOffsetY,
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -713,18 +781,20 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕正中心弹出
           ///If the position is relative to the screen, pop up from the center of the screen
-          childView = Positioned(
-            left: _getScreenCenterX() + widget._offsetX,
-            top: _getScreenCenterY() + widget._offsetY + _getTopPadding(context) / 2,
-            child: widget._customAnimation
-                ? widget._child
-                : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: FadeTransition(
-                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: widget._child,
+          childView = Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: widget._relativeOffsetX, top: widget._relativeOffsetY + _getTopPadding(context)),
+              child: widget._customAnimation
+                  ? widget._child
+                  : ScaleTransition(
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: FadeTransition(
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: widget._child,
+                      ),
                     ),
-                  ),
+            ),
           );
         } else {
           ///如果位置相对于目标widget，从目标widget的正中心弹出
@@ -732,8 +802,8 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///If the position is relative to the target widget, pop it up from the center of the target widget
           ///Before pop-up, the center point of the popup window is aligned with the center point of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._offsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._offsetY,
+            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._relativeOffsetX,
+            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._relativeOffsetY,
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -749,27 +819,40 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕正右方弹出
           ///If the position is relative to the screen, pop up from the right of the screen
-          childView = Positioned(
-            right: -widget._offsetX,
-            top: _getScreenCenterY() + widget._offsetY + _getTopPadding(context) / 2,
-            child: widget._customAnimation
-                ? widget._child
-                : SlideTransition(
-                    position: Tween(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: FadeTransition(
-                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: widget._child,
+          childView = Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.only(
+                right: widget._relativeOffsetX,
+                top: _getTopPadding(context),
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : SlideTransition(
+                      position: Tween(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: FadeTransition(
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: widget._child,
+                      ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeWidth = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+          }
+
           ///如果位置相对于目标widget，从目标widget的正右方弹出
           ///弹出之前，弹出框的y轴中心点与目标widget的y轴中心点对齐，弹出框的右边与目标widget的右边对齐
           ///If the position is relative to the target widget, pop up from the left of the target widget
           ///Before the pop-up, the y-axis center point of the popup window is aligned with the y-axis center point of the target widget, and the right side of the popup window is aligned with the right side of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) + widget._offsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._offsetY,
+            left: targetOffset.dx -
+                (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) +
+                widget._relativeOffsetX -
+                (safeWidth > 0 ? safeWidth : 0),
+            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._relativeOffsetY,
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -789,30 +872,45 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕左下方弹出
           ///If the position is relative to the screen, pop up from the bottom left of the screen
-          childView = Positioned(
-            left: widget._offsetX,
-            bottom: -widget._offsetY,
-            child: widget._customAnimation
-                ? widget._child
-                : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: SlideTransition(
-                      position: Tween(begin: Offset(-1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                        child: widget._child,
+          childView = Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: widget._relativeOffsetX,
+                bottom: widget._relativeOffsetY,
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : ScaleTransition(
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: SlideTransition(
+                        position: Tween(begin: Offset(-1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: FadeTransition(
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          child: widget._child,
+                        ),
                       ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeWidth = 0.0;
+          var safeHeight = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeWidth = widget._childSize.width - widget._relativeOffsetX - targetOffset.dx;
+            safeHeight = widget._childSize.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
+          }
+
           ///如果位置相对于目标widget，从目标widget的左下方弹出
           ///弹出之前，弹出框的左下角与目标widget的左下角对齐
           ///If the position is relative to the target widget, pop up from the bottom left of the target widget
           ///Before popping up, the bottom left corner of the popup box is aligned with the bottom left corner of the target widget
           childView = Positioned(
-            left: targetOffset.dx + widget._offsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) + widget._offsetY,
+            left: targetOffset.dx + widget._relativeOffsetX + (safeWidth > 0 ? safeWidth : 0),
+            top: targetOffset.dy -
+                (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) +
+                widget._relativeOffsetY -
+                (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -832,27 +930,39 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕正下方弹出
           ///If the position is relative to the screen, it pops up right below the screen
-          childView = Positioned(
-            left: _getScreenCenterX() + widget._offsetX,
-            bottom: -widget._offsetY,
-            child: widget._customAnimation
-                ? widget._child
-                : SlideTransition(
-                    position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: FadeTransition(
-                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: widget._child,
+          childView = Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(
+                bottom: widget._relativeOffsetY,
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : SlideTransition(
+                      position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: FadeTransition(
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: widget._child,
+                      ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeHeight = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeHeight = widget._childSize.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
+          }
+
           ///如果位置相对于目标widget，从目标widget的正下方弹出
           ///弹出之前，弹出框的x轴中心点与目标widget的x轴中心点对齐，弹出框的右边与目标widget的下边对齐
           ///If the position is relative to the target widget, pop up from directly below the target widget
           ///Before the pop-up, the x-axis center point of the popup window is aligned with the x-axis center point of the target widget, and the right side of the popup window is aligned with the bottom of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._offsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) + widget._offsetY,
+            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._relativeOffsetX,
+            top: targetOffset.dy -
+                (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) +
+                widget._relativeOffsetY -
+                (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
@@ -872,30 +982,48 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         if (widget._targetRenderBox == null) {
           ///如果位置相对于屏幕，从屏幕右下方弹出
           ///If the position is relative to the screen, pop up from the bottom right of the screen
-          childView = Positioned(
-            right: -widget._offsetX,
-            bottom: -widget._offsetY,
-            child: widget._customAnimation
-                ? widget._child
-                : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                    child: SlideTransition(
-                      position: Tween(begin: Offset(1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                      child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
-                        child: widget._child,
+          childView = Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: EdgeInsets.only(
+                right: widget._relativeOffsetX,
+                bottom: widget._relativeOffsetY,
+              ),
+              child: widget._customAnimation
+                  ? widget._child
+                  : ScaleTransition(
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      child: SlideTransition(
+                        position: Tween(begin: Offset(1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        child: FadeTransition(
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          child: widget._child,
+                        ),
                       ),
                     ),
-                  ),
+            ),
           );
         } else {
+          var safeWidth = 0.0;
+          var safeHeight = 0.0;
+          if (widget._childSize != null && widget._needSafeDisplay) {
+            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+            safeHeight = widget._childSize.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
+          }
+
           ///如果位置相对于目标widget，从目标widget的右下方弹出
           ///弹出之前，弹出框的右下角与目标widget的右下角对齐
           ///If the position is relative to the target widget, pop up from the bottom right of the target widget
           ///Before popping up, the bottom right corner of the popup box is aligned with the bottom right corner of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) + widget._offsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) + widget._offsetY,
+            left: targetOffset.dx -
+                (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) +
+                widget._relativeOffsetX -
+                (safeWidth > 0 ? safeWidth : 0),
+            top: targetOffset.dy -
+                (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) +
+                widget._relativeOffsetY -
+                (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
                 ? widget._child
                 : ScaleTransition(
