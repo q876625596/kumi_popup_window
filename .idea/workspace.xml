@@ -7,7 +7,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="" />
+    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,20 +47,20 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\project\flutterProject\kumi_popup_window\lib" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\FlutterProject\kumi_popup_window\lib" />
       <recent name="D:\FlutterProject\kumi_popup_window\example\lib" />
+      <recent name="D:\FlutterProject\kumi_popup_window\lib" />
       <recent name="F:\project\flutterProject\kumi_popup_window\example\lib" />
       <recent name="\" />
       <recent name="$PROJECT_DIR$/example/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\project\flutterProject\kumi_popup_window\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -222,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604050602540</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="1.0.12&#10;* 新增弹出框的安全显示控制参数needSafeDisplay，详见注释&#10;* 优化相对于屏幕的弹出框，如果是相对于屏幕的弹框，可以不写宽高，默认可撑满屏幕&#10;* Newly added security display control parameter needsafedisplay in pop-up box, see note for details&#10;* Optimize the pop-up box relative to the screen. If it is a pop-up box relative to the screen, you can not write the width and height. By default, it can hold the full screen">
+      <created>1604050718211</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1604050718211</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,38 +275,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="360" y="120" width="1406" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1603717803441" />
-    <state x="661" y="81" key="CommitChangelistDialog2" timestamp="1604050600804">
+    <state x="0" y="34" key="CommitChangelistDialog2" timestamp="1604050717501">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604050600804" />
+    <state x="0" y="34" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604050717501" />
     <state x="843" y="274" key="FileChooserDialogImpl" timestamp="1603717211948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="843" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603717211948" />
-    <state width="1340" height="258" key="GridCell.Tab.0.bottom" timestamp="1604049990768">
+    <state width="1340" height="258" key="GridCell.Tab.0.bottom" timestamp="1604556947991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
-    <state width="1340" height="258" key="GridCell.Tab.0.center" timestamp="1604049990768">
+    <state width="1340" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604556947991" />
+    <state width="1340" height="258" key="GridCell.Tab.0.center" timestamp="1604556947990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
-    <state width="1340" height="258" key="GridCell.Tab.0.left" timestamp="1604049990768">
+    <state width="1340" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604556947990" />
+    <state width="1340" height="258" key="GridCell.Tab.0.left" timestamp="1604556947990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
-    <state width="1340" height="258" key="GridCell.Tab.0.right" timestamp="1604049990768">
+    <state width="1340" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604556947990" />
+    <state width="1340" height="258" key="GridCell.Tab.0.right" timestamp="1604556947990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604049990768" />
+    <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604556947990" />
     <state x="564" y="164" key="SettingsEditor" timestamp="1604050646099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604050646099" />
-    <state x="655" y="252" key="Vcs.Push.Dialog.v2" timestamp="1604050608880">
+    <state x="655" y="252" key="Vcs.Push.Dialog.v2" timestamp="1604050736134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604050608880" />
+    <state x="655" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604050736134" />
     <state x="857" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603727845590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
