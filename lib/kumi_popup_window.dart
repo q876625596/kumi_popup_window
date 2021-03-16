@@ -4,29 +4,29 @@ import 'PopRoute.dart';
 
 KumiPopupWindow showPopupWindow<T>(
   BuildContext context, {
-  Widget Function(KumiPopupWindow popup) childFun,
-  Size childSize,
-  KumiPopupGravity gravity,
-  Curve curve,
-  bool customAnimation,
-  bool customPop,
-  bool customPage,
-  Color bgColor,
-  RenderBox targetRenderBox,
-  bool underStatusBar,
-  bool underAppBar,
-  bool clickOutDismiss,
-  bool clickBackDismiss,
-  double offsetX,
-  double offsetY,
-  Duration duration,
-  bool needSafeDisplay,
-  Function(KumiPopupWindow popup) onShowStart,
-  Function(KumiPopupWindow popup) onShowFinish,
-  Function(KumiPopupWindow popup) onDismissStart,
-  Function(KumiPopupWindow popup) onDismissFinish,
-  Function(KumiPopupWindow popup) onClickOut,
-  Function(KumiPopupWindow popup) onClickBack,
+  Widget Function(KumiPopupWindow popup)? childFun,
+  Size? childSize,
+  KumiPopupGravity? gravity,
+  Curve? curve,
+  bool? customAnimation,
+  bool? customPop,
+  bool? customPage,
+  Color? bgColor,
+  RenderBox? targetRenderBox,
+  bool? underStatusBar,
+  bool? underAppBar,
+  bool? clickOutDismiss,
+  bool? clickBackDismiss,
+  double? offsetX,
+  double? offsetY,
+  Duration? duration,
+  bool? needSafeDisplay,
+  Function(KumiPopupWindow popup)? onShowStart,
+  Function(KumiPopupWindow popup)? onShowFinish,
+  Function(KumiPopupWindow popup)? onDismissStart,
+  Function(KumiPopupWindow popup)? onDismissFinish,
+  Function(KumiPopupWindow popup)? onClickOut,
+  Function(KumiPopupWindow popup)? onClickBack,
 }) {
   var popup = KumiPopupWindow(
     gravity: gravity,
@@ -59,28 +59,28 @@ KumiPopupWindow showPopupWindow<T>(
 
 KumiPopupWindow createPopupWindow<T>(
   BuildContext context, {
-  Widget Function(KumiPopupWindow popup) childFun,
-  Size childSize,
-  KumiPopupGravity gravity,
-  bool customAnimation,
-  bool customPop,
-  bool customPage,
-  Color bgColor,
-  RenderBox targetRenderBox,
-  bool underStatusBar,
-  bool underAppBar,
-  bool clickOutDismiss,
-  bool clickBackDismiss,
-  double offsetX,
-  double offsetY,
-  Duration duration,
-  bool needSafeDisplay,
-  Function(KumiPopupWindow popup) onShowStart,
-  Function(KumiPopupWindow popup) onShowFinish,
-  Function(KumiPopupWindow popup) onDismissStart,
-  Function(KumiPopupWindow popup) onDismissFinish,
-  Function(KumiPopupWindow popup) onClickOut,
-  Function(KumiPopupWindow popup) onClickBack,
+  Widget Function(KumiPopupWindow popup)? childFun,
+  Size? childSize,
+  KumiPopupGravity? gravity,
+  bool? customAnimation,
+  bool? customPop,
+  bool? customPage,
+  Color? bgColor,
+  RenderBox? targetRenderBox,
+  bool? underStatusBar,
+  bool? underAppBar,
+  bool? clickOutDismiss,
+  bool? clickBackDismiss,
+  double? offsetX,
+  double? offsetY,
+  Duration? duration,
+  bool? needSafeDisplay,
+  Function(KumiPopupWindow popup)? onShowStart,
+  Function(KumiPopupWindow popup)? onShowFinish,
+  Function(KumiPopupWindow popup)? onDismissStart,
+  Function(KumiPopupWindow popup)? onDismissFinish,
+  Function(KumiPopupWindow popup)? onClickOut,
+  Function(KumiPopupWindow popup)? onClickBack,
 }) {
   return KumiPopupWindow(
     gravity: gravity,
@@ -114,7 +114,7 @@ class KumiPopupWindow extends StatefulWidget {
   /// 如果[_childSize] == null，那么当绘制完成以后，会将[_child]的尺寸赋值给[_childSize]
   /// Method for customizing the content of the popup window. The returned widget will be used as the content of the popup window, and then assigned to [_child]
   /// If [_childSize] == null, the size of [_child] will be assigned to [_childSize] when the drawing is completed
-  final Widget Function(KumiPopupWindow popup) _childFun;
+  final Widget Function(KumiPopupWindow popup)? _childFun;
 
   /// 弹出框的相对位置
   /// 默认为 [KumiPopupGravity.center]
@@ -172,7 +172,7 @@ class KumiPopupWindow extends StatefulWidget {
   ///The default is  null
   ///Get the position and size of the target widget through this property
   ///See the description of [_gravity]
-  final RenderBox _targetRenderBox;
+  final RenderBox? _targetRenderBox;
 
   ///顶部弹出时，是否在statusBar下方
   ///默认为false
@@ -232,84 +232,84 @@ class KumiPopupWindow extends StatefulWidget {
 
   /// 当前弹框是否已经显示
   /// Is the current pop-up displayed
-  bool _isShow;
+  bool? _isShow;
 
-  bool get isShow => _isShow;
+  bool? get isShow => _isShow;
 
   ///弹出动画开始的监听
   /// When the popupWindow show animation start
-  final Function(KumiPopupWindow popup) _onShowStart;
+  final Function(KumiPopupWindow popup)? _onShowStart;
 
   ///弹出动画结束的监听
   /// When the popupWindow show animation finish
-  final Function(KumiPopupWindow popup) _onShowEnd;
+  final Function(KumiPopupWindow popup)? _onShowEnd;
 
   ///收起动画开始的监听
   /// When the popupWindow dismiss animation start
-  final Function(KumiPopupWindow popup) _onDismissStart;
+  final Function(KumiPopupWindow popup)? _onDismissStart;
 
   ///收起动画结束的监听
   /// When the popupWindow dismiss animation finish
-  final Function(KumiPopupWindow popup) _onDismissEnd;
+  final Function(KumiPopupWindow popup)? _onDismissEnd;
 
   ///点击弹框以外的监听
   ///只有当[_clickOutDismiss] == false 才有效
   /// Click on the listener outside the popup
   /// Only works when [_clickOutDismiss] == false
-  final Function(KumiPopupWindow popup) _onClickOut;
+  final Function(KumiPopupWindow popup)? _onClickOut;
 
   ///点击物理返回按钮的监听
   ///只有当[_clickBackDismiss] == false 才有效
   /// Listening on clicking the physical back button
   /// Only works when [_clickBackDismiss] == false
-  final Function(KumiPopupWindow popup) _onClickBack;
+  final Function(KumiPopupWindow popup)? _onClickBack;
 
   ///弹出框的尺寸
   ///如果为null，那么将在绘制完成之后计算并赋值
   /// PopupWindow  size
   /// If null, it will be calculated and assigned after drawing
-  Size _childSize;
+  Size? _childSize;
 
-  Size get childSize => _childSize;
+  Size? get childSize => _childSize;
 
   ///弹出框的widget
   ///[_childFun]返回的widget
   ///Popup window widget
   ///[_childFun] Returned widget
-  Widget _child;
+  Widget? _child;
 
-  Widget get child => _child;
+  Widget? get child => _child;
 
   ///动画控制器
   //AnimationController
-  AnimationController _controller;
+  AnimationController? _controller;
 
-  AnimationController get controller => _controller;
+  AnimationController? get controller => _controller;
 
   KumiPopupWindow({
-    @required Widget Function(KumiPopupWindow popup) childFun,
-    Size childSize,
-    KumiPopupGravity gravity,
-    Curve curve,
-    bool customAnimation,
-    bool customPop,
-    bool customPage,
-    Color bgColor,
-    RenderBox targetRenderBox,
-    bool underStatusBar,
-    bool underAppBar,
-    bool clickOutDismiss,
-    bool clickBackDismiss,
-    double offsetX,
-    double offsetY,
-    Duration duration,
-    bool needSafeDisplay,
-    Function(KumiPopupWindow popup) onShowStart,
-    Function(KumiPopupWindow popup) onShowFinish,
-    Function(KumiPopupWindow popup) onDismissStart,
-    Function(KumiPopupWindow popup) onDismissFinish,
-    Function(KumiPopupWindow popup) onClickOut,
-    Function(KumiPopupWindow popup) onClickBack,
+    required Widget Function(KumiPopupWindow popup)? childFun,
+    Size? childSize,
+    KumiPopupGravity? gravity,
+    Curve? curve,
+    bool? customAnimation,
+    bool? customPop,
+    bool? customPage,
+    Color? bgColor,
+    RenderBox? targetRenderBox,
+    bool? underStatusBar,
+    bool? underAppBar,
+    bool? clickOutDismiss,
+    bool? clickBackDismiss,
+    double? offsetX,
+    double? offsetY,
+    Duration? duration,
+    bool? needSafeDisplay,
+    Function(KumiPopupWindow popup)? onShowStart,
+    Function(KumiPopupWindow popup)? onShowFinish,
+    Function(KumiPopupWindow popup)? onDismissStart,
+    Function(KumiPopupWindow popup)? onDismissFinish,
+    Function(KumiPopupWindow popup)? onClickOut,
+    Function(KumiPopupWindow popup)? onClickBack,
   })  : _childFun = childFun,
         _childSize = childSize,
         _gravity = gravity ?? KumiPopupGravity.center,
@@ -339,7 +339,7 @@ class KumiPopupWindow extends StatefulWidget {
 
   ///收起弹框
   ///popup window dismiss
-  Future dismiss(BuildContext context, {bool notStartAnimation, Function(KumiPopupWindow pop) onFinish}) async {
+  Future dismiss(BuildContext context, {bool? notStartAnimation, Function(KumiPopupWindow pop)? onFinish}) async {
     if (_isShow == false) {
       return;
     }
@@ -351,7 +351,7 @@ class KumiPopupWindow extends StatefulWidget {
       }
       return;
     }
-    await _controller.reverse();
+    await _controller!.reverse();
     Navigator.pop(context);
     if (onFinish != null) {
       onFinish(this);
@@ -372,32 +372,32 @@ class KumiPopupWindow extends StatefulWidget {
 }
 
 class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProviderStateMixin {
-  Animation<Offset> animation;
+  Animation<Offset>? animation;
 
   @override
   void initState() {
     super.initState();
     widget._controller = AnimationController(duration: widget._duration, vsync: this);
-    widget._controller.addStatusListener((status) {
+    widget._controller!.addStatusListener((status) {
       switch (status) {
         case AnimationStatus.forward:
           if (widget._onShowStart != null) {
-            widget._onShowStart(widget);
+            widget._onShowStart!(widget);
           }
           break;
         case AnimationStatus.dismissed:
           if (widget._onDismissEnd != null) {
-            widget._onDismissEnd(widget);
+            widget._onDismissEnd!(widget);
           }
           break;
         case AnimationStatus.reverse:
           if (widget._onDismissStart != null) {
-            widget._onDismissStart(widget);
+            widget._onDismissStart!(widget);
           }
           break;
         case AnimationStatus.completed:
           if (widget._onShowEnd != null) {
-            widget._onShowEnd(widget);
+            widget._onShowEnd!(widget);
           }
           break;
       }
@@ -405,23 +405,23 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
 
     ///将弹出框保存起来，保证其唯一性
     ///Save the popup window to ensure its uniqueness
-    widget._child = widget._childFun(widget);
+    widget._child = widget._childFun!(widget);
 
     ///如果已经设置过弹出框的尺寸，那么可以直接开始动画
     ///If you have set the size of the popup window, you can start the animation directly
     if (widget._childSize != null) {
-      widget._controller.forward();
+      widget._controller!.forward();
     }
 
     ///绘制完成的监听
     ///Draw completed listener
-    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance!.addPostFrameCallback((Duration timeStamp) {
       if (widget._customPage) {
-        widget._controller.forward();
+        widget._controller!.forward();
         return;
       }
       if (widget._customPop) {
-        widget._controller.forward();
+        widget._controller!.forward();
         return;
       }
 
@@ -430,19 +430,19 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
       if (widget._childSize == null) {
         ///那么此时可以直接获取弹出框绘制完成之后的尺寸
         ///Then you can directly get the size after the popup window is drawn.
-        widget._childSize = (widget._child.key as GlobalKey).currentContext.size;
+        widget._childSize = (widget._child!.key as GlobalKey).currentContext!.size;
 
         ///并且开始动画，必须放在setState里面
         ///And start the animation, must be placed in setState
         setState(() {
-          widget._controller.forward();
+          widget._controller!.forward();
         });
       }
     });
   }
 
   dispose() {
-    widget._controller.dispose();
+    widget._controller!.dispose();
     super.dispose();
   }
 
@@ -493,7 +493,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
     ///If you want to customize the entire page
     if (widget._customPage) {
       return WillPopScope(
-          child: widget._child,
+          child: widget._child!,
           onWillPop: () {
             if (widget._clickBackDismiss) {
               widget.dismiss(context);
@@ -513,7 +513,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
                 Align(
                   child: GestureDetector(
                     child: FadeTransition(
-                      opacity: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      opacity: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: Container(
                         alignment: Alignment.center,
                         color: widget._bgColor,
@@ -525,12 +525,12 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
                         return;
                       }
                       if (widget._onClickOut != null) {
-                        widget._onClickOut(widget);
+                        widget._onClickOut!(widget);
                       }
                     },
                   ),
                 ),
-                widget._child,
+                if (widget._child != null) widget._child!,
               ],
             ),
           ),
@@ -540,7 +540,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               return Future.value(false);
             }
             if (widget._onClickBack != null) {
-              widget._onClickBack(widget);
+              widget._onClickBack!(widget);
             }
             return Future.value(false);
           });
@@ -552,17 +552,17 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
 
     ///目标widget的坐标
     ///The position of the target widget
-    Offset targetOffset;
+    late Offset targetOffset;
 
     ///目标widget的尺寸
     ///The size of the target widget
-    Size targetSize;
+    late Size targetSize;
 
     ///当popup window的位置相对于某个目标widget时，需要初始化目标widget的坐标与尺寸
     ///When the position of the popup window is relative to a target widget, you need to initialize the position and size of the target widget
     if (widget._targetRenderBox != null) {
-      targetOffset = widget._targetRenderBox.localToGlobal(Offset.zero);
-      targetSize = widget._targetRenderBox.size;
+      targetOffset = widget._targetRenderBox!.localToGlobal(Offset.zero);
+      targetSize = widget._targetRenderBox!.size;
     }
     switch (widget._gravity) {
       case KumiPopupGravity.leftTop:
@@ -579,11 +579,11 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : ScaleTransition(
-                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: SlideTransition(
-                        position: Tween(begin: Offset(-1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        position: Tween(begin: Offset(-1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: FadeTransition(
-                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                           child: widget._child,
                         ),
                       ),
@@ -594,8 +594,8 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           var safeWidth = 0.0;
           var safeHeight = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeWidth = widget._childSize.width - widget._relativeOffsetX - targetOffset.dx;
-            safeHeight = widget._childSize.height - widget._relativeOffsetY - targetOffset.dy;
+            safeWidth = widget._childSize!.width - widget._relativeOffsetX - targetOffset.dx;
+            safeHeight = widget._childSize!.height - widget._relativeOffsetY - targetOffset.dy;
           }
 
           ///如果位置相对于目标widget，从目标widget的左上角弹出
@@ -606,13 +606,13 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
             left: targetOffset.dx + widget._relativeOffsetX + (safeWidth > 0 ? safeWidth : 0),
             top: targetOffset.dy + widget._relativeOffsetY + (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(-1, -1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(-1, -1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -633,9 +633,9 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : SlideTransition(
-                      position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -644,7 +644,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         } else {
           var safeHeight = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeHeight = widget._childSize.height - widget._relativeOffsetY - targetOffset.dy;
+            safeHeight = widget._childSize!.height - widget._relativeOffsetY - targetOffset.dy;
           }
 
           ///如果位置相对于目标widget，从目标widget的正上方弹出
@@ -652,16 +652,16 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///If the position is relative to the target widget, pop up from directly above the target widget
           ///Before the pop-up, the x-axis center point of the popup window is aligned with the x-axis center point of the target widget, and the top of the popup window is aligned with the top of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._relativeOffsetX,
+            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize!.width - targetSize.width) / 2 + widget._relativeOffsetX,
             top: targetOffset.dy + widget._relativeOffsetY + (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(0, -1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(0, -1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -683,11 +683,11 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : ScaleTransition(
-                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: SlideTransition(
-                        position: Tween(begin: Offset(1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        position: Tween(begin: Offset(1, -1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: FadeTransition(
-                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                           child: widget._child,
                         ),
                       ),
@@ -698,8 +698,8 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           var safeWidth = 0.0;
           var safeHeight = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
-            safeHeight = widget._childSize.height - widget._relativeOffsetY - targetOffset.dy;
+            safeWidth = widget._childSize!.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+            safeHeight = widget._childSize!.height - widget._relativeOffsetY - targetOffset.dy;
           }
 
           ///如果位置相对于目标widget，从目标widget的右上方弹出
@@ -708,18 +708,18 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///Before popup, the upper right corner of the popup box is aligned with the upper right corner of the target widget
           childView = Positioned(
             left: targetOffset.dx -
-                (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) +
+                (widget._childSize == null ? 0 : widget._childSize!.width - targetSize.width) +
                 widget._relativeOffsetX -
                 (safeWidth > 0 ? safeWidth : 0),
             top: targetOffset.dy + widget._relativeOffsetY + (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(1, -1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(1, -1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -741,9 +741,9 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : SlideTransition(
-                      position: Tween(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -752,7 +752,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         } else {
           var safeWidth = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+            safeWidth = widget._childSize!.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
           }
 
           ///如果位置相对于目标widget，从目标widget的正左方弹出
@@ -761,15 +761,15 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///Before the pop-up, the y-axis center point of the popup window is aligned with the y-axis center point of the target widget, and the left side of the popup window is aligned with the left side of the target widget
           childView = Positioned(
             left: targetOffset.dx + widget._relativeOffsetX + (safeWidth > 0 ? safeWidth : 0),
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._relativeOffsetY,
+            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize!.height - targetSize.height) / 2 + widget._relativeOffsetY,
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(-1, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(-1, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -788,9 +788,9 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : ScaleTransition(
-                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -802,14 +802,14 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///If the position is relative to the target widget, pop it up from the center of the target widget
           ///Before pop-up, the center point of the popup window is aligned with the center point of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._relativeOffsetX,
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._relativeOffsetY,
+            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize!.width - targetSize.width) / 2 + widget._relativeOffsetX,
+            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize!.height - targetSize.height) / 2 + widget._relativeOffsetY,
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: FadeTransition(
-                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: widget._child,
                     )),
           );
@@ -829,9 +829,9 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : SlideTransition(
-                      position: Tween(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -840,7 +840,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         } else {
           var safeWidth = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+            safeWidth = widget._childSize!.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
           }
 
           ///如果位置相对于目标widget，从目标widget的正右方弹出
@@ -849,18 +849,18 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///Before the pop-up, the y-axis center point of the popup window is aligned with the y-axis center point of the target widget, and the right side of the popup window is aligned with the right side of the target widget
           childView = Positioned(
             left: targetOffset.dx -
-                (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) +
+                (widget._childSize == null ? 0 : widget._childSize!.width - targetSize.width) +
                 widget._relativeOffsetX -
                 (safeWidth > 0 ? safeWidth : 0),
-            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) / 2 + widget._relativeOffsetY,
+            top: targetOffset.dy - (widget._childSize == null ? 0 : widget._childSize!.height - targetSize.height) / 2 + widget._relativeOffsetY,
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(1, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(1, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -882,11 +882,11 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : ScaleTransition(
-                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: SlideTransition(
-                        position: Tween(begin: Offset(-1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        position: Tween(begin: Offset(-1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: FadeTransition(
-                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                           child: widget._child,
                         ),
                       ),
@@ -897,8 +897,8 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           var safeWidth = 0.0;
           var safeHeight = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeWidth = widget._childSize.width - widget._relativeOffsetX - targetOffset.dx;
-            safeHeight = widget._childSize.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
+            safeWidth = widget._childSize!.width - widget._relativeOffsetX - targetOffset.dx;
+            safeHeight = widget._childSize!.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
           }
 
           ///如果位置相对于目标widget，从目标widget的左下方弹出
@@ -908,17 +908,17 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           childView = Positioned(
             left: targetOffset.dx + widget._relativeOffsetX + (safeWidth > 0 ? safeWidth : 0),
             top: targetOffset.dy -
-                (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) +
+                (widget._childSize == null ? 0 : widget._childSize!.height - targetSize.height) +
                 widget._relativeOffsetY -
                 (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(-1, 1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(-1, 1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -939,9 +939,9 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : SlideTransition(
-                      position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -950,7 +950,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         } else {
           var safeHeight = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeHeight = widget._childSize.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
+            safeHeight = widget._childSize!.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
           }
 
           ///如果位置相对于目标widget，从目标widget的正下方弹出
@@ -958,19 +958,19 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///If the position is relative to the target widget, pop up from directly below the target widget
           ///Before the pop-up, the x-axis center point of the popup window is aligned with the x-axis center point of the target widget, and the right side of the popup window is aligned with the bottom of the target widget
           childView = Positioned(
-            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) / 2 + widget._relativeOffsetX,
+            left: targetOffset.dx - (widget._childSize == null ? 0 : widget._childSize!.width - targetSize.width) / 2 + widget._relativeOffsetX,
             top: targetOffset.dy -
-                (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) +
+                (widget._childSize == null ? 0 : widget._childSize!.height - targetSize.height) +
                 widget._relativeOffsetY -
                 (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(0, 1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(0, 1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -992,11 +992,11 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
               child: widget._customAnimation
                   ? widget._child
                   : ScaleTransition(
-                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: SlideTransition(
-                        position: Tween(begin: Offset(1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        position: Tween(begin: Offset(1, 1), end: Offset(0, 0)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: FadeTransition(
-                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                          opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                           child: widget._child,
                         ),
                       ),
@@ -1007,8 +1007,8 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           var safeWidth = 0.0;
           var safeHeight = 0.0;
           if (widget._childSize != null && widget._needSafeDisplay) {
-            safeWidth = widget._childSize.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
-            safeHeight = widget._childSize.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
+            safeWidth = widget._childSize!.width + widget._relativeOffsetX - (MediaQuery.of(context).size.width - targetOffset.dx - targetSize.width);
+            safeHeight = widget._childSize!.height + widget._relativeOffsetY - (MediaQuery.of(context).size.height - targetOffset.dy - targetSize.height);
           }
 
           ///如果位置相对于目标widget，从目标widget的右下方弹出
@@ -1017,21 +1017,21 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
           ///Before popping up, the bottom right corner of the popup box is aligned with the bottom right corner of the target widget
           childView = Positioned(
             left: targetOffset.dx -
-                (widget._childSize == null ? 0 : widget._childSize.width - targetSize.width) +
+                (widget._childSize == null ? 0 : widget._childSize!.width - targetSize.width) +
                 widget._relativeOffsetX -
                 (safeWidth > 0 ? safeWidth : 0),
             top: targetOffset.dy -
-                (widget._childSize == null ? 0 : widget._childSize.height - targetSize.height) +
+                (widget._childSize == null ? 0 : widget._childSize!.height - targetSize.height) +
                 widget._relativeOffsetY -
                 (safeHeight > 0 ? safeHeight : 0),
             child: widget._customAnimation
-                ? widget._child
+                ? widget._child!
                 : ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    scale: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: SlideTransition(
-                      position: Tween(begin: Offset(0, 0), end: Offset(1, 1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                      position: Tween(begin: Offset(0, 0), end: Offset(1, 1)).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                       child: FadeTransition(
-                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                        opacity: Tween(begin: -1.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                         child: widget._child,
                       ),
                     ),
@@ -1046,12 +1046,12 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(
-            overflow: Overflow.visible,
+            clipBehavior: Clip.none,
             children: <Widget>[
               Positioned(
                 child: GestureDetector(
                   child: FadeTransition(
-                    opacity: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller),
+                    opacity: Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: widget._curve)).animate(widget._controller!),
                     child: Container(
                       alignment: Alignment.center,
                       color: widget._bgColor,
@@ -1063,7 +1063,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
                       return;
                     }
                     if (widget._onClickOut != null) {
-                      widget._onClickOut(widget);
+                      widget._onClickOut!(widget);
                     }
                   },
                 ),
@@ -1078,7 +1078,7 @@ class _KumiPopupWindowState extends State<KumiPopupWindow> with SingleTickerProv
             return Future.value(false);
           }
           if (widget._onClickBack != null) {
-            widget._onClickBack(widget);
+            widget._onClickBack!(widget);
           }
           return Future.value(false);
         });

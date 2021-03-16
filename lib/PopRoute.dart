@@ -4,19 +4,19 @@ class PopRoute extends PopupRoute {
   final Widget _child;
 
   PopRoute({
-    @required Widget child,
+    required Widget child,
   }):
         _child = child;
 
 
   @override
-  Color get barrierColor => null;
+  Color? get barrierColor => null;
 
   @override
   bool get barrierDismissible => true;
 
   @override
-  String get barrierLabel => null;
+  String? get barrierLabel => null;
 
   @override
   Duration get transitionDuration => Duration(milliseconds: 0);

@@ -1,3 +1,7 @@
+## [2.0.0-nullsafety]
+* 更新flutter到2.0.2，空安全支持
+* Update flutter to 2.0.2, null safety support
+
 ## [1.0.12]
 * 新增弹出框的安全显示控制参数needSafeDisplay，详见注释
 * 优化相对于屏幕的弹出框，如果是相对于屏幕的弹框，可以不写宽高，默认可撑满屏幕
