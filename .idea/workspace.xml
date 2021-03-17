@@ -7,19 +7,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/PopRoute.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/PopRoute.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/kumi_popup_window.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kumi_popup_window.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_CN.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +46,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -242,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604050718211</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support">
+      <created>1615888678233</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1615888678233</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,13 +270,18 @@
     <MESSAGE value="1.0.10 Flutter version upgrade to 1.7.3 test success" />
     <MESSAGE value="1.0.11 &#10;* Flutter upgrade to 1.22.2 test success&#10;* Optimize animation, add curve attribute for custom interpolator" />
     <MESSAGE value="1.0.12&#10;* 新增弹出框的安全显示控制参数needSafeDisplay，详见注释&#10;* 优化相对于屏幕的弹出框，如果是相对于屏幕的弹框，可以不写宽高，默认可撑满屏幕&#10;* Newly added security display control parameter needsafedisplay in pop-up box, see note for details&#10;* Optimize the pop-up box relative to the screen. If it is a pop-up box relative to the screen, you can not write the width and height. By default, it can hold the full screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.12&#10;* 新增弹出框的安全显示控制参数needSafeDisplay，详见注释&#10;* 优化相对于屏幕的弹出框，如果是相对于屏幕的弹框，可以不写宽高，默认可撑满屏幕&#10;* Newly added security display control parameter needsafedisplay in pop-up box, see note for details&#10;* Optimize the pop-up box relative to the screen. If it is a pop-up box relative to the screen, you can not write the width and height. By default, it can hold the full screen" />
+    <MESSAGE value="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="704" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615887702814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615887702814" />
+    <state x="0" y="9" key="CommitChangelistDialog2" timestamp="1615888730433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="9" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615888730433" />
     <state x="374" y="112" width="1200" height="800" key="DiffContextDialog" timestamp="1615887468946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -287,25 +290,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="843" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615886607801" />
-    <state width="1340" height="258" key="GridCell.Tab.0.bottom" timestamp="1615887717282">
+    <state width="1340" height="258" key="GridCell.Tab.0.bottom" timestamp="1615888734030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615887717282" />
-    <state width="1340" height="258" key="GridCell.Tab.0.center" timestamp="1615887717282">
+    <state width="1340" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
+    <state width="1340" height="258" key="GridCell.Tab.0.center" timestamp="1615888734030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615887717282" />
-    <state width="1340" height="258" key="GridCell.Tab.0.left" timestamp="1615887717282">
+    <state width="1340" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
+    <state width="1340" height="258" key="GridCell.Tab.0.left" timestamp="1615888734030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615887717282" />
-    <state width="1340" height="258" key="GridCell.Tab.0.right" timestamp="1615887717282">
+    <state width="1340" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
+    <state width="1340" height="258" key="GridCell.Tab.0.right" timestamp="1615888734030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615887717282" />
+    <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
     <state x="564" y="164" key="SettingsEditor" timestamp="1615886708761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615886708761" />
+    <state x="566" y="244" key="Vcs.Push.Dialog.v2" timestamp="1615888682684">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="566" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615888682684" />
   </component>
 </project>
