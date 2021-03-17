@@ -7,10 +7,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support">
+    <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_CN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -240,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615888678233</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support">
+      <created>1615947076040</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1615947076040</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -278,10 +288,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615887702814" />
-    <state x="0" y="9" key="CommitChangelistDialog2" timestamp="1615888730433">
+    <state x="0" y="9" key="CommitChangelistDialog2" timestamp="1615947074955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="9" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615888730433" />
+    <state x="0" y="9" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615947074955" />
     <state x="374" y="112" width="1200" height="800" key="DiffContextDialog" timestamp="1615887468946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -306,13 +316,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
-    <state x="564" y="164" key="SettingsEditor" timestamp="1615886708761">
+    <state x="564" y="164" key="SettingsEditor" timestamp="1615947313621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615886708761" />
-    <state x="566" y="244" key="Vcs.Push.Dialog.v2" timestamp="1615888682684">
+    <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615947313621" />
+    <state x="566" y="244" key="Vcs.Push.Dialog.v2" timestamp="1615947087600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="566" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615888682684" />
+    <state x="566" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615947087600" />
   </component>
 </project>
