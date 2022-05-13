@@ -1,3 +1,8 @@
+## [2.0.1]
+* 更新flutter到3.0.0
+* Update flutter to 3.0.0,
+
+
 ## [2.0.0-nullsafety]
 * 更新flutter到2.0.2，空安全支持
 * Update flutter to 2.0.2, null safety support

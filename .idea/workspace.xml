@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -9,11 +14,20 @@
   <component name="ChangeListManager">
     <list default="true" id="dc3d98f1-6c2d-48c7-a7c7-4b3d7cbaf985" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/example/example/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/example/example/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kumi_popup_window.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kumi_popup_window.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +38,6 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[e672700f]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -45,12 +58,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -71,6 +86,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -282,47 +298,5 @@
     <MESSAGE value="1.0.12&#10;* 新增弹出框的安全显示控制参数needSafeDisplay，详见注释&#10;* 优化相对于屏幕的弹出框，如果是相对于屏幕的弹框，可以不写宽高，默认可撑满屏幕&#10;* Newly added security display control parameter needsafedisplay in pop-up box, see note for details&#10;* Optimize the pop-up box relative to the screen. If it is a pop-up box relative to the screen, you can not write the width and height. By default, it can hold the full screen" />
     <MESSAGE value="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support" />
     <option name="LAST_COMMIT_MESSAGE" value="2.0.0-nullsafety&#10;* 更新flutter到2.0.2，空安全支持&#10;* Update flutter to 2.0.2, null safety support" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="704" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615887702814">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="704" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615887702814" />
-    <state x="0" y="9" key="CommitChangelistDialog2" timestamp="1615947074955">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="0" y="9" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615947074955" />
-    <state x="374" y="112" width="1200" height="800" key="DiffContextDialog" timestamp="1615887468946">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="374" y="112" width="1200" height="800" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615887468946" />
-    <state x="843" y="274" key="FileChooserDialogImpl" timestamp="1615886607801">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="843" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615886607801" />
-    <state width="1340" height="258" key="GridCell.Tab.0.bottom" timestamp="1615888734030">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
-    <state width="1340" height="258" key="GridCell.Tab.0.center" timestamp="1615888734030">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
-    <state width="1340" height="258" key="GridCell.Tab.0.left" timestamp="1615888734030">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
-    <state width="1340" height="258" key="GridCell.Tab.0.right" timestamp="1615888734030">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1340" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615888734030" />
-    <state x="564" y="164" key="SettingsEditor" timestamp="1615947313621">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="564" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615947313621" />
-    <state x="566" y="244" key="Vcs.Push.Dialog.v2" timestamp="1615947087600">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="566" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615947087600" />
   </component>
 </project>

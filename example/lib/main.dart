@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 
@@ -122,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   showPopupWindow(
                     context,
                     //childSize:Size(240, 800),
-                    gravity: KumiPopupGravity.rightBottom,
+                    gravity: KumiPopupGravity.centerBottom,
                     //curve: Curves.elasticOut,
                     bgColor: Colors.grey.withOpacity(0.5),
                     clickOutDismiss: true,
