@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  kumi_popup_window: ^2.0.0-nullsafety
+  kumi_popup_window: ^2.0.1
 ```
 
 **2.导入**
